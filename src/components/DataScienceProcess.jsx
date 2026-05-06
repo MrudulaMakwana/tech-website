@@ -7,12 +7,12 @@ import step5 from "./../assets/images/step5.png";
 import step6 from "./../assets/images/step6.png";
 import Star from "./../assets/images/star-icon.png";
 import {
-  FaLightbulb, // Innovation
-  FaShieldAlt, // Integrity
-  FaUsers, // Teamwork
-  FaBullseye, // Client focus
-  FaAward, // Excellence
-  FaSyncAlt, // Agile
+  FaLightbulb, 
+  FaShieldAlt,
+  FaUsers,
+  FaBullseye,
+  FaAward, 
+  FaSyncAlt, 
 } from "react-icons/fa";
 
 const steps = [

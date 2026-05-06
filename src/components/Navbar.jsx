@@ -2,12 +2,11 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import { FaSearch } from "react-icons/fa";
 import { FaChevronDown } from "react-icons/fa6";
 import logo from "./../assets/images/logo.png";
+import logoDark from "./../assets/images/logo_dark.png";
 import { Link, useNavigate } from "react-router-dom";
 import { ThemeContext } from "../context/ThemeContext";
 import { MdSunny } from "react-icons/md";
 import { FaMoon } from "react-icons/fa";
-// import { FaArrowRightLong } from "react-icons/fa6";
-// import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,9 +19,6 @@ const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [openSubMenu, setOpenSubMenu] = useState(null);
   const dropdownRef = useRef();
-  // const [mobileDropdown, setMobileDropdown] = useState(null);
-  // const [mobileSubMenu, setMobileSubMenu] = useState(null);
-  // const [isLocked, setIsLocked] = useState(false);
 
   const handleSearch = () => {
     if (searchTerm.trim() !== "") {
@@ -85,8 +81,19 @@ const Navbar = () => {
       className={`w-full fixed top-0 left-0 bg-white text-black dark:bg-gray-800 dark:text-white dark:border-b-2 border-orange-500 z-50 shadow-sm transition-all duration-300`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link to="/" className="hover:text-orange-500">
-          <img src={logo} alt="LOGO" className="h-15 w-auto object-contain" />
+        <Link to="/" className="hover:text-orange-500 flex items-center">
+          <div className="h-16 w-[120px] flex items-center justify-center">
+            <img
+              src={logoDark}
+              alt="LOGO"
+              className="w-26 h-auto hidden dark:block"
+            />
+            <img
+              src={logo}
+              alt="LOGO"
+              className="max-h-full max-w-full block dark:hidden"
+            />
+          </div>
         </Link>
 
         {/* Menu */}
@@ -281,9 +288,7 @@ const Navbar = () => {
           </div>
 
           {/* Menu Items */}
-          <div
-            className="space-y-2 dark:text-white text-black font-medium"
-          >
+          <div className="space-y-2 dark:text-white text-black font-medium">
             <Link
               to="/internship"
               onClick={() => setIsOpen(false)}
@@ -373,21 +378,6 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-
-            {/* Search */}
-            {/* <div className="flex items-center gap-2 border border-white/20 rounded-md px-3 py-2 bg-white/10 mt-4">
-              <input
-                type="text"
-                placeholder="Search..."
-                className="w-full bg-transparent outline-none text-sm text-white placeholder:text-white/60"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") handleSearch();
-                }}
-              />
-              <FaSearch className="text-orange-400" onClick={handleSearch} />
-            </div> */}
           </div>
         </div>
       </>

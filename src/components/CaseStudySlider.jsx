@@ -124,7 +124,6 @@ const CaseStudySlider = () => {
               </div>
             </div>
           </SwiperSlide>
-
         </Swiper>
       </div>
     </div>

@@ -10,18 +10,23 @@ import { useNavigate } from "react-router-dom";
 
 const heroData = [
   {
-    title: "Data Science Consulting Services",
-    desc: "Get professional & reliable research oriented solutions for Data Science and Machine Learning business needs.",
+    title: "Providing the Best IT Solutions for Your Business",
+    desc: "Providing the best services and IT solutions requires a combination of technical expertise, customer-focused strategies, and cutting-edge technologies. Whether you are an IT service provider, a digital agency, or a consulting firm, delivering high-quality services that solve business challenges is key to building long-term client relationships and achieving success.",
     image: heroImg,
   },
   {
-    title: "AI & Machine Learning Solutions",
-    desc: "We build intelligent systems that help businesses grow with AI-powered insights.",
+    title: "Web Development",
+    desc: "We create responsive, modern, and high-performance websites using the latest technologies to give your business a strong online presence.",
     image: heroImg,
   },
   {
-    title: "Advanced Analytics Services",
-    desc: "Transform your data into actionable insights using modern analytics techniques.",
+    title: "Digital Marketing Solutions",
+    desc: "Grow your brand with SEO, social media marketing, and paid campaigns that drive real traffic and conversions.",
+    image: heroImg,
+  },
+  {
+    title: "Internship & Training Programs",
+    desc: "Get industry-ready with our hands-on internship programs in React, Java, Python, and more.",
     image: heroImg,
   },
 ];
@@ -57,7 +62,7 @@ const Hero = () => {
 
         <Swiper
           modules={[Autoplay, Navigation]}
-          autoplay={{ delay: 3500 }}
+          autoplay={{ delay: 10000  }}
           loop={true}
           navigation={{
             prevEl: prevRef.current,
@@ -100,7 +105,7 @@ const Hero = () => {
                       className="flex items-center gap-3 justify-center group"
                       onClick={() =>
                         window.open(
-                          "https://www.youtube.com/watch?v=u31qwQUeGuM",
+                          "https://youtube.com/@infinity3technology",
                           "_blank"
                         )
                       }

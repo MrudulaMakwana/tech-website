@@ -2,11 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import blogs from "../data/blogs";
 import Sidebar from "../components/Sidebar";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
-  FaInstagram,
+import {FaFacebookF,FaTwitter,FaLinkedinIn,FaInstagram,
 } from "react-icons/fa";
 import PageHeader from "../components/PageHeader";
 
@@ -16,15 +12,7 @@ const BlogDetailsPage = () => {
 
   if (!blog) {
     return (
-      <div
-        className="
-          min-h-screen
-          flex items-center justify-center
-          text-center
-          bg-gray-50 dark:bg-gray-900
-          text-gray-800 dark:text-white
-        "
-      >
+      <div className="min-h-screen flex items-center justify-center text-center bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-white">
         Blog not found
       </div>
     );

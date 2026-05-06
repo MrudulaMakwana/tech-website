@@ -29,11 +29,6 @@ const Services = () => {
           We Offer Professional Solutions For Business
         </h2>
 
-        <p className="text-gray-500 dark:text-gray-300 mt-3 md:mt-4 text-sm md:text-base max-w-xl md:max-w-2xl mx-auto">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna.
-        </p>
-
         {/* SERVICES GRID */}
         <div className="mt-6 md:mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-8 px-2 sm:px-4 md:px-0">
           {servicesData.slice(0, 3).map((item) => (

@@ -1,27 +1,42 @@
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import bg from "./../assets/images/course-details-bg.jpg";
 import CourseCard from "../components/CourseCard";
 import courses from "../data/coursesData";
 import {
-  FaFacebookF,
+  FaEnvelope,
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
   FaPlus,
   FaMinus,
 } from "react-icons/fa";
-import blogperson1 from "../assets/images/blogperson1.jpg";
-import blogperson2 from "../assets/images/blogperson2.jpg";
-import blogperson3 from "../assets/images/blogperson3.jpg";
-import blogperson4 from "../assets/images/blogperson4.jpg";
+
 
 const CourseDetailsPage = () => {
   const { slug } = useParams();
-  const [openIndex, setOpenIndex] = useState(0);
+
+  const [openIndex, setOpenIndex] = useState(null);
   const [activeTab, setActiveTab] = useState("curriculum");
-  const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
+
+  const [modalFormData, setModalFormData] = useState({
+    fullName: "",
+    email: "",
+    contact: "",
+  });
+
+  const [sidebarFormData, setSidebarFormData] = useState({
+    fullName: "",
+    email: "",
+    contact: "",
+  });
+
   const course = courses.find((item) => item.slug === slug);
+
+  const inputClass =
+    "w-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-black dark:text-white rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-orange-400";
+
   if (!course) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
@@ -32,12 +47,47 @@ const CourseDetailsPage = () => {
     );
   }
 
+  const handleModalChange = (e) => {
+    setModalFormData({
+      ...modalFormData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSidebarChange = (e) => {
+    setSidebarFormData({
+      ...sidebarFormData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleModalSubmit = (e) => {
+    e.preventDefault();
+    console.log("Modal Form:", modalFormData);
+    setModalFormData({
+      fullName: "",
+      email: "",
+      contact: "",
+    });
+    setShowModal(false);
+  };
+
+  const handleSidebarSubmit = (e) => {
+    e.preventDefault();
+    console.log("Sidebar Form:", sidebarFormData);
+    setSidebarFormData({
+      fullName: "",
+      email: "",
+      contact: "",
+    });
+  };
+
   return (
     <div className="bg-gray-50 dark:bg-gray-900 min-h-screen pt-16 sm:pt-20 overflow-hidden">
       {/* PAGE HEADER */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white">
-         {course.title}
+          {course.title}
         </h1>
 
         <p className="text-sm md:text-base text-gray-500 dark:text-gray-300 mt-2">
@@ -54,7 +104,7 @@ const CourseDetailsPage = () => {
           <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm mb-6">
             <img
               src={bg}
-              alt=""
+              alt={course.title}
               className="w-full h-64 sm:h-72 md:h-80 object-cover"
             />
           </div>
@@ -73,6 +123,7 @@ const CourseDetailsPage = () => {
               >
                 Curriculum
               </button>
+
               <button
                 onClick={() => setActiveTab("overview")}
                 className={`font-medium transition ${
@@ -83,6 +134,7 @@ const CourseDetailsPage = () => {
               >
                 Overview
               </button>
+
             </div>
 
             {/* TAB CONTENT */}
@@ -129,7 +181,7 @@ const CourseDetailsPage = () => {
                     </h2>
 
                     <button
-                      onClick={() => navigate("/contact-us")}
+                      onClick={() => setShowModal(true)}
                       className="bg-orange-500 hover:bg-black transition text-white px-6 py-3 rounded-xl font-medium"
                     >
                       Download Curriculum
@@ -146,7 +198,9 @@ const CourseDetailsPage = () => {
                         {/* HEADER */}
                         <button
                           onClick={() =>
-                            setOpenIndex(openIndex === index ? null : index)
+                            setOpenIndex(
+                              openIndex === index ? null : index,
+                            )
                           }
                           className="w-full flex items-center justify-between px-5 py-4 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
                         >
@@ -177,76 +231,6 @@ const CourseDetailsPage = () => {
                 </div>
               )}
 
-              {/* REVIEWS */}
-              {activeTab === "reviews" && (
-                <div>
-                  <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
-                    Student Reviews
-                  </h2>
-
-                  {[
-                    {
-                      name: "James Anderson",
-                      rating: 5,
-                      title: "Excellent",
-                      text: "Very well built course with practical examples.",
-                      img: blogperson1,
-                    },
-                    {
-                      name: "Sarah Taylor",
-                      rating: 4,
-                      title: "Very Helpful",
-                      text: "Easy to understand and beginner friendly.",
-                      img: blogperson2,
-                    },
-                    {
-                      name: "David Warner",
-                      rating: 5,
-                      title: "Perfect",
-                      text: "Best course structure and real-world projects.",
-                      img: blogperson3,
-                    },
-                    {
-                      name: "King Kong",
-                      rating: 4,
-                      title: "Amazing",
-                      text: "Loved the teaching style and support.",
-                      img: blogperson4,
-                    },
-                  ].map((review, index) => (
-                    <div
-                      key={index}
-                      className="flex gap-4 py-6 border-b border-gray-200 dark:border-gray-700"
-                    >
-                      <img
-                        src={review.img}
-                        alt=""
-                        className="w-14 h-14 rounded-full object-cover"
-                      />
-
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-orange-400">
-                            {"★".repeat(review.rating)}
-                          </span>
-
-                          <h4 className="font-semibold text-gray-800 dark:text-white">
-                            {review.name}
-                          </h4>
-                        </div>
-
-                        <p className="font-medium text-gray-700 dark:text-gray-200 mt-1">
-                          {review.title}
-                        </p>
-
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                          {review.text}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
             </div>
           </div>
         </div>
@@ -263,76 +247,58 @@ const CourseDetailsPage = () => {
               </p>
             </div>
 
-            {/* FORM */}
-            <div className="p-6 space-y-4">
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="
-                  w-full
-                  border border-gray-300 dark:border-gray-700
-                  bg-white dark:bg-gray-900
-                  text-black dark:text-white
-                  rounded-xl px-4 py-3
-                  outline-none
-                  focus:ring-2 focus:ring-orange-400
-                "
-              />
+            <form onSubmit={handleSidebarSubmit}>
+              <div className="p-6 space-y-4">
+                <input
+                  type="text"
+                  name="fullName"
+                  value={sidebarFormData.fullName}
+                  onChange={handleSidebarChange}
+                  placeholder="Your Name"
+                  required
+                  className={inputClass}
+                />
 
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="
-                  w-full
-                  border border-gray-300 dark:border-gray-700
-                  bg-white dark:bg-gray-900
-                  text-black dark:text-white
-                  rounded-xl px-4 py-3
-                  outline-none
-                  focus:ring-2 focus:ring-orange-400
-                "
-              />
+                <input
+                  type="email"
+                  name="email"
+                  value={sidebarFormData.email}
+                  onChange={handleSidebarChange}
+                  placeholder="Email Address"
+                  required
+                  className={inputClass}
+                />
 
-              <input
-                type="tel"
-                placeholder="+91 Contact Number"
-                className="
-                  w-full
-                  border border-gray-300 dark:border-gray-700
-                  bg-white dark:bg-gray-900
-                  text-black dark:text-white
-                  rounded-xl px-4 py-3
-                  outline-none
-                  focus:ring-2 focus:ring-orange-400
-                "
-              />
+                <input
+                  type="tel"
+                  name="contact"
+                  value={sidebarFormData.contact}
+                  onChange={handleSidebarChange}
+                  placeholder="+91 Contact Number"
+                  required
+                  className={inputClass}
+                />
 
-              <button className="w-full bg-orange-500 hover:bg-black transition text-white py-3 rounded-xl font-semibold">
-                Send Inquiry
-              </button>
-            </div>
+                <button
+                  type="submit"
+                  className="w-full bg-orange-500 hover:bg-black transition text-white py-3 rounded-xl font-semibold"
+                >
+                  Send Inquiry
+                </button>
+              </div>
+            </form>
 
-            {/* SOCIAL */}
             <div className="px-6 pb-6">
               <p className="text-center text-orange-500 font-medium mb-4">
                 Share This Course
               </p>
 
               <div className="flex justify-center gap-3">
-                {[FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram].map(
+                {[FaEnvelope, FaTwitter, FaLinkedinIn, FaInstagram].map(
                   (Icon, i) => (
                     <div
                       key={i}
-                      className="
-                        w-10 h-10
-                        flex items-center justify-center
-                        rounded-full
-                        bg-gray-100 dark:bg-gray-700
-                        text-gray-700 dark:text-white
-                        hover:bg-orange-500 hover:text-white
-                        transition
-                        cursor-pointer
-                      "
+                      className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white hover:bg-orange-500 hover:text-white transition cursor-pointer"
                     >
                       <Icon size={14} />
                     </div>
@@ -344,7 +310,6 @@ const CourseDetailsPage = () => {
         </div>
       </div>
 
-      {/* MORE COURSES */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 dark:text-white mb-10">
           More Courses You Might Like
@@ -356,6 +321,78 @@ const CourseDetailsPage = () => {
           ))}
         </div>
       </div>
+
+      {/* MODAL */}
+      {showModal && (
+        <div
+          onClick={() => setShowModal(false)}
+          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden w-full max-w-md"
+          >
+            {/* TOP */}
+            <div className="bg-orange-500 p-6 text-white relative">
+              <h2 className="text-2xl font-bold">
+                Attend a Free Demo
+              </h2>
+
+              <button
+                onClick={() => setShowModal(false)}
+                className="absolute top-3 right-4 text-3xl"
+              >
+                ×
+              </button>
+
+              <p className="text-sm mt-2 text-orange-100">
+                Fill the details and we will contact you shortly
+              </p>
+            </div>
+
+            <form onSubmit={handleModalSubmit}>
+              <div className="p-6 space-y-4">
+                <input
+                  type="text"
+                  name="fullName"
+                  value={modalFormData.fullName}
+                  onChange={handleModalChange}
+                  placeholder="Your Name"
+                  required
+                  className={inputClass}
+                />
+
+                <input
+                  type="email"
+                  name="email"
+                  value={modalFormData.email}
+                  onChange={handleModalChange}
+                  placeholder="Email Address"
+                  required
+                  className={inputClass}
+                />
+
+                <input
+                  type="tel"
+                  name="contact"
+                  value={modalFormData.contact}
+                  onChange={handleModalChange}
+                  placeholder="+91 Contact Number"
+                  required
+                  className={inputClass}
+                />
+
+                <button
+                  type="submit"
+                  className="w-full bg-orange-500 hover:bg-black transition text-white py-3 rounded-xl font-semibold"
+                >
+                  Send Inquiry
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

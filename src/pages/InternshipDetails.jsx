@@ -9,10 +9,8 @@ import PageHeader from "../components/PageHeader";
 const InternshipDetails = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
-
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [applyPlan, setApplyPlan] = useState(null);
-
   const internship = internshipData.find((item) => item.slug === slug);
 
   if (!internship)

@@ -125,10 +125,11 @@ const ContactUsPage = () => {
                 Hours of Operation
               </h3>
               <p className="text-gray-500 dark:text-gray-300 text-sm">
-                Monday - Saturday
+                Monday - Friday: 09:30 AM - 06:30 PM
               </p>
+
               <p className="text-gray-500 dark:text-gray-300 text-sm">
-                09:30 AM - 06:30 PM
+                Saturday: 09:30 AM - 04:00 PM
               </p>
             </div>
           </div>

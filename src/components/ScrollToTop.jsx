@@ -48,7 +48,7 @@ const ScrollToTop = () => {
           {/* WhatsApp Button */}
           <button
             onClick={openWhatsApp}
-            className="bg-green-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition"
+            className="bg-green-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg cursor-pointer hover:bg-green-600 transition"
           >
             <FaWhatsapp size={22} />
           </button>
@@ -56,7 +56,7 @@ const ScrollToTop = () => {
           {/* Scroll To Top Button */}
           <button
             onClick={scrollToTop}
-            className=" bg-orange-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-black transition"
+            className=" bg-orange-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg cursor-pointer hover:bg-black transition"
           >
             <FaChevronUp />
           </button>

@@ -53,10 +53,7 @@ function App() {
         <Route path="/internship" element={<InternshipPage />} />
         <Route path="/technology" element={<TechnologyPage />} />
         <Route path="/technology/:slug" element={<TechnologyDetails />} />
-        <Route
-          path="/internship-details/:slug"
-          element={<InternshipDetails />}
-        />
+        <Route path="/internship-details/:slug" element={<InternshipDetails />}/>
         <Route path="/events" element={<EventsPage />} />
         <Route path="/event-details/:id" element={<EventDetailsPage />} />
         <Route path="/search" element={<SearchResults />} />

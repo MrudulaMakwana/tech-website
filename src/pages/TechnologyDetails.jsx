@@ -32,7 +32,7 @@ const TechnologyDetails = () => {
     <div className="bg-gray-50 pt-16 md:pt-20 overflow-hidden dark:bg-gray-900">
       {/* HEADER */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 leading-snug dark:text-white" >
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 leading-snug dark:text-white">
           {technology.title}
         </h1>
 
@@ -118,8 +118,6 @@ const TechnologyDetails = () => {
                 flex flex-col justify-center items-center text-center
                 hover:bg-orange-500 group cursor-pointer dark:bg-gray-600"
                             >
-                             
-
                               {/* TITLE */}
                               <h3
                                 className="font-bold text-gray-800 dark:text-gray-200 text-lg md:text-xl 
@@ -133,7 +131,7 @@ const TechnologyDetails = () => {
                                 className="text-sm text-gray-600 mt-2 
                   group-hover:text-orange-100 dark:text-gray-200 transition"
                               >
-                                Explore complete Course 
+                                Explore complete Course
                               </p>
                             </div>
                           </Link>
@@ -149,7 +147,9 @@ const TechnologyDetails = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 dark:bg-gray-900">
               {/* FEATURES */}
               <div className="bg-white p-5 md:p-6 rounded-2xl shadow-md border border-gray-100 dark:bg-gray-800">
-                <h3 className="text-xl font-bold mb-4 text-black dark:text-white">Features</h3>
+                <h3 className="text-xl font-bold mb-4 text-black dark:text-white">
+                  Features
+                </h3>
 
                 <ul className="space-y-3">
                   {technology.features.map((f, i) => (
@@ -182,7 +182,9 @@ const TechnologyDetails = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 dark:bg-gray-900">
               {/* USE CASES */}
               <div className="lg:col-span-2 bg-white p-5 md:p-6 rounded-2xl shadow-md border border-gray-100 dark:bg-gray-800">
-                <h3 className="text-xl text-black font-bold mb-4 dark:text-white">Use Cases</h3>
+                <h3 className="text-xl text-black font-bold mb-4 dark:text-white">
+                  Use Cases
+                </h3>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {technology.useCases.map((u, i) => (

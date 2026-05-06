@@ -2,35 +2,36 @@ import React, { useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import CTA from "../components/CTA";
 import PageHeader from "../components/PageHeader";
-
 const faqData = [
   {
     id: 1,
-    question:
-      "Q1. What is Data Science? List the differences between supervised and unsupervised learning.",
+    question: "What services does Infinity3 Technology provide?",
     answer:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+      "We provide complete IT solutions including web development, mobile app development, digital marketing, SEO services, SaaS products, and IT training programs.",
   },
   {
     id: 2,
-    question: "Q2. What is Selection Wilo.com?",
-    answer: "This is dummy answer content for question 2.",
+    question: "Do you offer internship or training programs?",
+    answer:
+      "Yes, we offer hands-on internship and training programs in technologies like React, Node.js, Python, and full-stack development with real project experience.",
   },
   {
     id: 3,
-    question: "Q3. What is wilo-variance trade-off?",
-    answer: "This is dummy answer content for question 3.",
+    question: "Do you build custom websites and applications?",
+    answer:
+      "Yes, we specialize in building fully customized websites and mobile applications based on client requirements with modern design and scalable architecture.",
   },
   {
     id: 4,
-    question: "Q4. What is a confusion matrix?",
-    answer: "This is dummy answer content for question 4.",
+    question: "Do you provide support after project delivery?",
+    answer:
+      "Yes, we provide ongoing maintenance, updates, and technical support to ensure smooth performance of your website or application.",
   },
   {
     id: 5,
-    question:
-      'Q5. What is the difference between "long" and "wide" format data?',
-    answer: "This is dummy answer content for question 5.",
+    question: "How can I start a project with your company?",
+    answer:
+      "You can contact us through our website or inquiry form. Our team will analyze your requirements and guide you through the complete development process.",
   },
 ];
 

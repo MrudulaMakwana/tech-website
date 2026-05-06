@@ -14,16 +14,13 @@ const AboutUs = ({ showButton = true }) => {
     { id: 1, icon: icon1, title: "4 Years", desc: "On the market" },
     { id: 2, icon: icon2, title: "10+", desc: "Team members" },
     { id: 3, icon: icon3, title: "90%", desc: "Satisfaction rate" },
-    { id: 4, icon: icon4, title: "80%", desc: "Senior scientist" },
+    { id: 4, icon: icon4, title: "50+", desc: "Happy Customers" },
   ];
 
   return (
     <section className="py-12 sm:py-14 md:py-16 bg-white dark:bg-gray-900 overflow-hidden">
-      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-          
           {/* LEFT IMAGE */}
           <div className="flex justify-center order-1">
             <img
@@ -35,7 +32,6 @@ const AboutUs = ({ showButton = true }) => {
 
           {/* RIGHT CONTENT */}
           <div className="order-2 text-center lg:text-left">
-            
             {/* SMALL TITLE */}
             <div className="flex items-center justify-center lg:justify-start gap-2">
               <img
@@ -51,24 +47,23 @@ const AboutUs = ({ showButton = true }) => {
 
             {/* MAIN HEADING */}
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-3 leading-tight text-gray-800 dark:text-white">
-              Drive Digital Revolution Through Data Science
+              Why our customers choose working with us
             </h2>
 
             {/* DESCRIPTION */}
             <p className="mt-5 text-sm sm:text-base leading-7 text-gray-500 dark:text-gray-300">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna.
+              High standards in products or services that meet or exceed
+              expectations. A proven track record and positive reputation,
+              building confidence among clients.
             </p>
 
             {/* STATS GRID */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mt-8">
-              
               {statsData.map((item) => (
                 <div
                   key={item.id}
                   className="flex items-center gap-4 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 rounded-xl transition-all duration-300 hover:border-orange-500 hover:shadow-lg cursor-pointer"
                 >
-                  
                   {/* ICON */}
                   <div className="flex-shrink-0">
                     <img
@@ -94,8 +89,7 @@ const AboutUs = ({ showButton = true }) => {
 
             {/* BOTTOM DESCRIPTION */}
             <p className="mt-6 text-sm sm:text-base leading-7 text-gray-500 dark:text-gray-300">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna.
+             We leverage cutting-edge technologies to deliver innovative and customized solutions tailored to modern business needs. Our approach centers on building powerful strategies that enhance operational efficiency, elevate user experience, and address complex real-world challenges. By integrating advanced tools with creative thinking, we empower organizations to achieve sustainable growth and maintain a competitive edge.
             </p>
 
             {/* BUTTON */}
@@ -109,7 +103,6 @@ const AboutUs = ({ showButton = true }) => {
                 </button>
               </div>
             )}
-
           </div>
         </div>
       </div>

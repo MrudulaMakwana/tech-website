@@ -1,11 +1,8 @@
 import React from "react";
-import {
-  FaWhatsapp,
-  FaLinkedinIn,
-  FaInstagram,
-} from "react-icons/fa";
+import { FaWhatsapp, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import logo from "../assets/images/logo.png";
+import logo from "./../assets/images/logo.png";
+import logoDark from "./../assets/images/logo_dark.png";
 import { LuPhoneCall } from "react-icons/lu";
 import { SlLocationPin } from "react-icons/sl";
 import { MdOutlineMailOutline } from "react-icons/md";
@@ -13,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   const socialLinks = [
-    { icon: MdEmail, url:"mailto:infinity3tech@gmail.com"},
+    { icon: MdEmail, url: "mailto:infinity3tech@gmail.com" },
     { icon: FaWhatsapp, url: "https://wa.me/919409259294" },
     {
       icon: FaLinkedinIn,
@@ -30,8 +27,19 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         {/* Column 1 */}
         <div>
-          <Link to="/">
-            <img src={logo} alt="Logo" className="w-32 mb-5" />
+          <Link to="/" className="hover:text-orange-500 flex items-center">
+            <div className="h-16 w-[120px] flex items-center justify-center">
+              <img
+                src={logoDark}
+                alt="LOGO"
+                className="w-26 h-auto  hidden dark:block"
+              />
+              <img
+                src={logo}
+                alt="LOGO"
+                className="max-h-full max-w-full block dark:hidden"
+              />
+            </div>
           </Link>
 
           <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400">
