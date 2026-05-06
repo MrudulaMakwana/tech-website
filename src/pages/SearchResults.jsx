@@ -5,97 +5,120 @@ import internshipData from "../data/internshipData";
 import coursesData from "../data/coursesData";
 import blogs from "../data/blogs";
 import { FaSearch } from "react-icons/fa";
+
 const SearchResults = () => {
   const query = new URLSearchParams(useLocation().search).get("q") || "";
 
-  //  Combine all data
- const allData = [
-  ...servicesData.map((item) => ({
-    ...item,
-    description: item.desc, 
-    type: "service",
-    link: `/service-details/${item.id}`,
-  })),
+  // Combine all data
+  const allData = [
+    ...servicesData.map((item) => ({
+      ...item,
+      description: item.desc,
+      type: "service",
+      link: `/service-details/${item.id}`,
+    })),
 
-  ...internshipData.map((item) => ({
-    ...item,
-    description: item.desc, 
-    type: "internship",
-    link: `/internship-details/${item.id}`,
-  })),
+    ...internshipData.map((item) => ({
+      ...item,
+      description: item.desc,
+      type: "internship",
+      link: `/internship-details/${item.slug}`,
+    })),
+  ];
 
- 
-];
+  // Filter logic
+  const results = allData.filter((item) => {
+    const text = `
+      ${item.title || ""}
+      ${item.desc || ""}
+      ${item.description || ""}
+    `.toLowerCase();
 
-  //  Filter logic
-const results = allData.filter((item) => {
-  const text = `
-    ${item.title || ""}
-    ${item.desc || ""}
-    ${item.description || ""}
-  `.toLowerCase();
+    const searchWords = query.toLowerCase().split(" ");
 
-  const searchWords = query.toLowerCase().split(" ");
-
-  return searchWords.every((word) => text.includes(word));
-});
-
+    return searchWords.every((word) => text.includes(word));
+  });
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24 px-6">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-20 sm:pt-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      
+      {/* HEADER */}
       <div className="max-w-6xl mx-auto mb-10">
-        <h2 className="text-3xl font-bold text-gray-800">Search Results</h2>
-        <p className="text-gray-500 mt-2">
+        
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
+          Search Results
+        </h2>
+
+        <p className="text-sm sm:text-base text-gray-500 dark:text-gray-300 mt-3">
           Showing results for:
-          <span className="text-orange-500 font-semibold">"{query}"</span>
+          <span className="text-orange-500 font-semibold ml-1">
+            "{query}"
+          </span>
         </p>
       </div>
 
+      {/* NO RESULTS */}
       {results.length === 0 ? (
-        <div className="flex flex-col items-center justify-center mt-20 text-center">
-          <div className="text-6xl">
-            <FaSearch className="text-orange-500 cursor-pointer" />
+        <div className="flex flex-col items-center justify-center mt-16 sm:mt-24 text-center px-4">
+          
+          <div className="text-5xl sm:text-6xl">
+            <FaSearch className="text-orange-500" />
           </div>
-          <h3 className="text-xl font-semibold mt-4 text-gray-700">
+
+          <h3 className="text-xl sm:text-2xl font-semibold mt-5 text-gray-700 dark:text-white">
             No results found
           </h3>
-          <p className="text-gray-500 mt-2">
+
+          <p className="text-sm sm:text-base text-gray-500 dark:text-gray-300 mt-3">
             Try searching with different keywords
           </p>
 
           <Link
             to="/"
-            className="mt-6 px-6 py-2 bg-orange-500 text-white rounded-md hover:bg-black transition"
+            className="mt-6 px-6 py-3 bg-orange-500 text-white rounded-xl hover:bg-black transition duration-300"
           >
             Go Back Home
           </Link>
         </div>
       ) : (
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+        
+        /* RESULTS GRID */
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pb-12 sm:pb-16">
+          
           {results.map((item, index) => (
             <Link
               key={index}
               to={item.link}
-              className="group bg-white border rounded-xl p-5 shadow-sm hover:shadow-lg transition duration-300 hover:-translate-y-1"
+              className="
+                group
+                bg-white dark:bg-gray-800
+                border border-gray-200 dark:border-gray-700
+                rounded-2xl
+                p-5 sm:p-6
+                shadow-sm hover:shadow-xl
+                transition duration-300
+                hover:-translate-y-1
+              "
             >
-              {/*  Type Badge */}
-              <span className="inline-block text-xs px-3 py-1 rounded-full bg-orange-100 text-orange-600 mb-3 capitalize">
+              
+              {/* TYPE BADGE */}
+              <span className="inline-block text-xs sm:text-sm px-3 py-1 rounded-full bg-orange-100 text-orange-600 mb-4 capitalize">
                 {item.type}
               </span>
 
-              {/*  Title */}
-              <h3 className="font-semibold text-lg text-gray-800 group-hover:text-orange-500 transition">
+              {/* TITLE */}
+              <h3 className="font-semibold text-lg sm:text-xl text-gray-800 dark:text-white group-hover:text-orange-500 transition leading-snug">
                 {item.title}
               </h3>
 
-              {/* Description */}
-              <p className="text-sm text-gray-500 mt-2 line-clamp-3">
+              {/* DESCRIPTION */}
+              <p className="text-sm sm:text-base text-gray-500 dark:text-gray-300 mt-3 line-clamp-3 leading-6">
                 {item.description}
               </p>
 
-              {/*  Read More */}
-              <div className="mt-4 text-orange-500 text-sm font-medium group-hover:underline">
-                View Details 
+              {/* READ MORE */}
+              <div className="mt-5 text-orange-500 text-sm sm:text-base font-medium group-hover:underline">
+                View Details
               </div>
             </Link>
           ))}

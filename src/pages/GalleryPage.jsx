@@ -9,6 +9,7 @@ import img7 from "./../assets/images/gallery7.jpg";
 import img8 from "./../assets/images/gallery8.jpg";
 import img9 from "./../assets/images/gallery9.jpg";
 import PageHeader from "../components/PageHeader";
+import CTA from "../components/CTA";
 
 const GalleryPage = () => {
   
@@ -25,7 +26,7 @@ const GalleryPage = () => {
   ];
 
   return (
-    <section className="bg-gray-50 min-h-screen pt-16 md:pt-20 overflow-hidden">
+    <section className="bg-gray-50 min-h-screen pt-16 md:pt-20 overflow-hidden dark:bg-gray-900">
       
       {/* HEADER */}
       <PageHeader title="Gallery" />
@@ -38,7 +39,7 @@ const GalleryPage = () => {
           {images.map((img, index) => (
             <div
               key={index}
-              className="overflow-hidden rounded-2xl shadow-md bg-white group cursor-pointer hover:shadow-2xl transition duration-300"
+              className="overflow-hidden rounded-2xl shadow-md bg-white dark:bg-gray-800 group cursor-pointer hover:shadow-2xl transition duration-300"
             >
               
               {/* IMAGE */}
@@ -61,6 +62,9 @@ const GalleryPage = () => {
           ))}
         </div>
       </div>
+
+ <CTA />
+
     </section>
   );
 };

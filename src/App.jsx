@@ -20,14 +20,14 @@ import TermsConditions from "./pages/TermsConditions";
 import EventsPage from "./pages/EventsPage";
 import EventDetailsPage from "./pages/EventDetailsPage";
 import BlogGrid from "./pages/BlogGrid";
-import BlogRightSidebar from "./pages/BlogRightSidebar";
 import BlogDetailsPage from "./pages/BlogDetailsPage";
 import InternshipPage from "./pages/InternshipPage";
 import InternshipDetails from "./pages/InternshipDetails";
 import SearchResults from "./pages/SearchResults";
 import TechnologyPage from "./pages/TechnologyPage";
 import TechnologyDetails from "./pages/TechnologyDetails";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <>
@@ -39,7 +39,6 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/service-details/:id" element={<ServicesDetails />} />
         <Route path="/blog" element={<BlogGrid />} />
-        <Route path="/blog-rightsidebar" element={<BlogRightSidebar />} />
         <Route path="/blog-details/:id" element={<BlogDetailsPage />} />
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/case-studies/:slug" element={<CaseStudyDetails />} />
@@ -51,14 +50,19 @@ function App() {
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/courses" element={<CoursesPage />} />
         <Route path="/course-details/:slug" element={<CourseDetailsPage />} />
-         <Route path="/internship" element={<InternshipPage />} />
-         <Route path="/technology" element={<TechnologyPage />} />
-         <Route path="/technology/:slug" element={<TechnologyDetails />} />
-        <Route path="/internship-details/:slug" element={<InternshipDetails />} />
+        <Route path="/internship" element={<InternshipPage />} />
+        <Route path="/technology" element={<TechnologyPage />} />
+        <Route path="/technology/:slug" element={<TechnologyDetails />} />
+        <Route
+          path="/internship-details/:slug"
+          element={<InternshipDetails />}
+        />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/event-details/:id" element={<EventDetailsPage />} />
         <Route path="/search" element={<SearchResults />} />
       </Routes>
+      
+      <ToastContainer position="top-right" autoClose={3000} />
       <Footer />
     </>
   );

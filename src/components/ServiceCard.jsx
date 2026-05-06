@@ -8,7 +8,7 @@ const ServiceCard = ({ item }) => {
     <div
       className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl 
       transition duration-300 group text-center border border-gray-100 
-      hover:border-orange-400 flex flex-col justify-between h-full"
+      hover:border-orange-400 flex flex-col justify-between h-full  dark:bg-gray-800 "
     >
       {/* TOP CONTENT */}
       <div>
@@ -20,12 +20,12 @@ const ServiceCard = ({ item }) => {
         </div>
 
         {/* TITLE */}
-        <h3 className="text-lg font-semibold text-black mb-3">
+        <h3 className="text-lg font-semibold text-black mb-3 dark:text-white">
           {item.title}
         </h3>
 
         {/* DESCRIPTION */}
-        <p className="text-black text-sm leading-6 min-h-[200px] line-clamp-4">
+        <p className="text-black text-sm leading-6 min-h-[200px] line-clamp-4 dark:text-white">
           {item.desc}
         </p>
       </div>

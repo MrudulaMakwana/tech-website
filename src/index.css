@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -30,6 +32,10 @@
   }
 }
 
+
+
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #9ca3af;
@@ -53,3 +59,5 @@
 body {
   margin: 0;
 }
+@custom-variant dark (&:where(.dark, .dark *));
+

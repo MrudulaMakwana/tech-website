@@ -5,7 +5,7 @@ import DataScienceProcess from "../components/DataScienceProcess";
 import CaseStudySlider from "../components/CaseStudySlider";
 import Team from "../components/Team";
 import Testimonials from "../components/Testimonials";
-import Blog from "../components/Blog";
+// import Blog from "../components/Blog";
 import CTA from "../components/CTA";
 import OurSolutions from "../components/OurSolutions";
 import Hero from "../components/Hero";
@@ -25,9 +25,8 @@ const Home = () => {
   return (
     <>
       <Hero />
-      {/* <OurSolutions /> */}
       <AboutUs />
-      <section className="bg-gray-100 py-10 md:py-20">
+      <section className="bg-gray-100 dark:bg-gray-900 py-10 md:py-20">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           {/* Heading */}
           <div className="flex items-center justify-center gap-2">
@@ -36,30 +35,31 @@ const Home = () => {
               alt="Star Icon"
               className="w-4 md:w-5 animate-[float_4s_ease-in-out_infinite]"
             />
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 dark:text-white text-center">
               Internship Opportunities
             </h2>
           </div>
 
-          <p className="text-gray-500 text-center mt-2 mb-6 md:mb-10 text-sm md:text-base">
+          <p className="text-gray-500  dark:text-gray-300 text-center mt-2 mb-6 md:mb-10 text-sm md:text-base">
             Explore internships and start your career journey
           </p>
 
           <div className="relative">
-            {/*  LEFT BUTTON */}
             <button
               className="prev-btn absolute left-1 md:left-2 lg:left-5 top-1/2 -translate-y-1/2 
-        text-white bg-orange-500 shadow-lg w-9 h-9 md:w-12 md:h-12 rounded-full flex justify-center items-center 
-        hover:bg-gray-200 hover:text-orange-500 transition z-10"
+        w-9 h-9 md:w-12 md:h-12 rounded-full flex justify-center items-center 
+        bg-orange-500 text-white shadow-lg transition z-10
+        hover:bg-gray-200 hover:text-orange-500
+        dark:bg-gray-800 dark:text-white dark:hover:bg-orange-500 dark:hover:text-white"
             >
               <MdOutlineKeyboardArrowLeft size={20} className="md:text-2xl" />
             </button>
-
-            {/*  RIGHT BUTTON */}
             <button
               className="next-btn absolute right-1 md:right-2 lg:right-5 top-1/2 -translate-y-1/2 
-        bg-orange-500 shadow-lg w-9 h-9 md:w-12 md:h-12 rounded-full flex justify-center items-center text-white
-        hover:bg-gray-200 hover:text-orange-500 transition z-10"
+        w-9 h-9 md:w-12 md:h-12 rounded-full flex justify-center items-center 
+        bg-orange-500 text-white shadow-lg transition z-10
+        hover:bg-gray-200 hover:text-orange-500
+        dark:bg-gray-800 dark:text-white dark:hover:bg-orange-500 dark:hover:text-white"
             >
               <MdOutlineKeyboardArrowRight size={20} className="md:text-2xl" />
             </button>
@@ -104,7 +104,7 @@ const Home = () => {
       <CaseStudySlider />
       <Team limit={4} showHeader={true} />
       <Testimonials />
-      <Blog />
+      {/* <Blog /> */}
       <CTA />
     </>
   );

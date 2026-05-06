@@ -7,10 +7,11 @@ import DataScienceProcess from "../components/DataScienceProcess";
 import Team from "../components/Team";
 import Testimonials from "../components/Testimonials";
 import PageHeader from "../components/PageHeader";
+import CTA from "../components/CTA";
 
 const About = () => {
   return (
-    <div className="bg-gray-50 pt-16 md:pt-20 overflow-hidden">
+    <div className="bg-gray-50 dark:bg-gray-900 pt-16 md:pt-20 overflow-hidden">
       
       {/* HEADER */}
       <PageHeader title="About Us" />
@@ -24,18 +25,18 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           
           {/* OUR HISTORY */}
-          <div className="bg-white p-5 md:p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+          <div className="bg-white dark:bg-gray-800 p-5 md:p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300">
             
-            <h3 className="text-black text-xl md:text-2xl font-bold mb-3">
+            <h3 className="text-black dark:text-white text-xl md:text-2xl font-bold mb-3">
               Our History
             </h3>
 
-            <p className="text-gray-500 text-sm md:text-base mb-5 leading-relaxed">
+            <p className="text-gray-500 dark:text-gray-300 text-sm md:text-base mb-5 leading-relaxed">
               Real innovations and a positive customer experience are the heart
               of successful communication.
             </p>
 
-            <ul className="space-y-3 text-sm md:text-base text-gray-600">
+            <ul className="space-y-3 text-sm md:text-base text-gray-600 dark:text-gray-300">
               
               <li className="flex items-start gap-2">
                 <MdOutlineDone className="text-lg text-orange-500 shrink-0 mt-1" />
@@ -60,18 +61,18 @@ const About = () => {
           </div>
 
           {/* OUR MISSION */}
-          <div className="bg-white p-5 md:p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+          <div className="bg-white dark:bg-gray-800 p-5 md:p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300">
             
-            <h3 className="text-black text-xl md:text-2xl font-bold mb-3">
+            <h3 className="text-black dark:text-white text-xl md:text-2xl font-bold mb-3">
               Our Mission
             </h3>
 
-            <p className="text-gray-500 text-sm md:text-base mb-5 leading-relaxed">
+            <p className="text-gray-500 dark:text-gray-300 text-sm md:text-base mb-5 leading-relaxed">
               Our mission is to empower students and businesses with modern
               technology skills and innovative digital solutions.
             </p>
 
-            <ul className="space-y-3 text-sm md:text-base text-gray-600">
+            <ul className="space-y-3 text-sm md:text-base text-gray-600 dark:text-gray-300">
               
               <li className="flex items-start gap-2">
                 <MdOutlineDone className="text-lg text-orange-500 shrink-0 mt-1" />
@@ -96,19 +97,19 @@ const About = () => {
           </div>
 
           {/* WHO WE ARE */}
-          <div className="bg-white p-5 md:p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+          <div className="bg-white dark:bg-gray-800 p-5 md:p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300">
             
-            <h3 className="text-black text-xl md:text-2xl font-bold mb-3">
+            <h3 className="text-black dark:text-white text-xl md:text-2xl font-bold mb-3">
               Who We Are
             </h3>
 
-            <p className="text-gray-500 text-sm md:text-base mb-5 leading-relaxed">
+            <p className="text-gray-500 dark:text-gray-300 text-sm md:text-base mb-5 leading-relaxed">
               We are a team of passionate developers, trainers, and technology
               experts dedicated to delivering high-quality IT services and
               training.
             </p>
 
-            <ul className="space-y-3 text-sm md:text-base text-gray-600">
+            <ul className="space-y-3 text-sm md:text-base text-gray-600 dark:text-gray-300">
               
               <li className="flex items-start gap-2">
                 <MdOutlineDone className="text-lg text-orange-500 shrink-0 mt-1" />
@@ -142,6 +143,7 @@ const About = () => {
       <Team limit={4} showHeader={true} />
 
       <Testimonials />
+       <CTA />
     </div>
   );
 };

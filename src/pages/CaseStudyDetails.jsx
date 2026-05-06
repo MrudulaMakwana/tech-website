@@ -24,17 +24,16 @@ const CaseStudyDetails = () => {
 
   if (!project) {
     return (
-      <h1 className="pt-24 text-center text-xl">
+      <h1 className="pt-24 text-center text-xl text-black dark:text-white">
         Project Not Found
       </h1>
     );
   }
 
   return (
-    <div className="bg-gray-50 pt-16 md:pt-20 overflow-hidden">
-      
+    <div className="bg-gray-50 pt-16 md:pt-20 overflow-hidden dark:bg-gray-900">
       {/* HEADER */}
-      <PageHeader title="Case Study Details" />
+      <PageHeader title="Project Details" />
 
       {/* MAIN SECTION */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 pb-12 md:pb-16">
@@ -55,22 +54,22 @@ const CaseStudyDetails = () => {
           </p>
 
           {/* TITLE */}
-          <h2 className="text-2xl md:text-3xl text-black font-bold mt-2 leading-snug">
+          <h2 className="text-2xl md:text-3xl text-black dark:text-white font-bold mt-2 leading-snug">
             {project.title}
           </h2>
 
           {/* DESCRIPTION */}
-          <p className="text-gray-600 mt-4 leading-7 text-sm md:text-base">
+          <p className="text-gray-600 dark:text-gray-300 mt-4 leading-7 text-sm md:text-base">
             {project.desc}
           </p>
 
           {/* IMPORTANT FACTS */}
           <div className="mt-8">
-            <h3 className="text-black text-lg md:text-xl font-semibold mb-3">
+            <h3 className="text-black dark:text-white text-lg md:text-xl font-semibold mb-3">
               Important Facts
             </h3>
 
-            <ul className="space-y-2 text-gray-600 text-sm md:text-base">
+            <ul className="space-y-2 text-gray-600 dark:text-gray-300 text-sm md:text-base">
               <li>The Field of Data Science</li>
               <li>The Problem</li>
               <li>The Solution</li>
@@ -80,88 +79,88 @@ const CaseStudyDetails = () => {
           </div>
 
           {/* TEXT */}
-          <p className="text-gray-600 mt-6 leading-7 text-sm md:text-base">
+          <p className="text-gray-600 dark:text-gray-300 mt-6 leading-7 text-sm md:text-base">
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout.
           </p>
 
-          <p className="text-gray-600 mt-4 leading-7 text-sm md:text-base">
+          <p className="text-gray-600 dark:text-gray-300 mt-4 leading-7 text-sm md:text-base">
             There are many variations of passages of Lorem Ipsum available,
             but the majority have suffered alteration in some form.
           </p>
 
           {/* RESULTS */}
           <div className="mt-8">
-            <h3 className="text-black text-xl font-semibold">
+            <h3 className="text-black dark:text-white text-xl font-semibold">
               Results
             </h3>
 
-            <p className="mt-2 text-gray-600 text-sm md:text-base">
+            <p className="mt-2 text-gray-600 dark:text-gray-300 text-sm md:text-base">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
           </div>
         </div>
 
         {/* SIDEBAR */}
-        <div className="bg-white p-5 md:p-6 rounded-xl shadow-md border-t-4 border-orange-500 h-fit">
+        <div className="bg-white dark:bg-gray-800 p-5 md:p-6 rounded-xl shadow-md border-t-4 border-orange-500 h-fit">
           
-          <div className="space-y-5 text-sm text-gray-600">
+          <div className="space-y-5 text-sm text-gray-600 dark:text-gray-300">
             
             {/* CLIENT */}
-            <div className="flex gap-3 border-b pb-4">
+            <div className="flex gap-3 border-b border-gray-200 dark:border-gray-700 pb-4">
               <MdOutlineContactEmergency className="text-orange-500 text-xl shrink-0" />
 
               <div>
-                <p className="text-gray-400 text-xs">
+                <p className="text-gray-400 dark:text-gray-500 text-xs">
                   Client
                 </p>
 
-                <p className="font-semibold break-words">
+                <p className="font-semibold break-words text-black dark:text-white">
                   {project.client}
                 </p>
               </div>
             </div>
 
             {/* LOCATION */}
-            <div className="flex gap-3 border-b pb-4">
+            <div className="flex gap-3 border-b border-gray-200 dark:border-gray-700 pb-4">
               <GrLocation className="text-orange-500 text-xl shrink-0" />
 
               <div>
-                <p className="text-gray-400 text-xs">
+                <p className="text-gray-400 dark:text-gray-500 text-xs">
                   Location
                 </p>
 
-                <p className="font-semibold break-words">
+                <p className="font-semibold break-words text-black dark:text-white">
                   {project.location}
                 </p>
               </div>
             </div>
 
             {/* TECHNOLOGIES */}
-            <div className="flex gap-3 border-b pb-4">
+            <div className="flex gap-3 border-b border-gray-200 dark:border-gray-700 pb-4">
               <LuTag className="text-orange-500 text-xl shrink-0" />
 
               <div>
-                <p className="text-gray-400 text-xs">
+                <p className="text-gray-400 dark:text-gray-500 text-xs">
                   Technologies
                 </p>
 
-                <p className="font-semibold break-words">
+                <p className="font-semibold break-words text-black dark:text-white">
                   {project.technologies}
                 </p>
               </div>
             </div>
 
             {/* COMPLETED */}
-            <div className="flex gap-3 border-b pb-4">
+            <div className="flex gap-3 border-b border-gray-200 dark:border-gray-700 pb-4">
               <MdDone className="text-orange-500 text-xl shrink-0" />
 
               <div>
-                <p className="text-gray-400 text-xs">
+                <p className="text-gray-400 dark:text-gray-500 text-xs">
                   Completed
                 </p>
 
-                <p className="font-semibold">
+                <p className="font-semibold text-black dark:text-white">
                   {project.completed}
                 </p>
               </div>
@@ -172,13 +171,15 @@ const CaseStudyDetails = () => {
               <TbWorld className="text-orange-500 text-xl shrink-0" />
 
               <div>
-                <p className="text-gray-400 text-xs">
+                <p className="text-gray-400 dark:text-gray-500 text-xs">
                   Website
                 </p>
 
                 <a
                   href={project.website}
-                  className="text-orange-500 font-semibold break-all hover:text-black transition"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-orange-500 font-semibold break-all hover:text-black dark:hover:text-white transition"
                 >
                   Visit Site
                 </a>
@@ -191,7 +192,7 @@ const CaseStudyDetails = () => {
       {/* MORE PROJECTS */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16">
         
-        <h2 className="text-2xl text-black font-bold mb-8 text-center">
+        <h2 className="text-2xl text-black dark:text-white font-bold mb-8 text-center">
           More Projects You Might Like
         </h2>
 
@@ -200,7 +201,7 @@ const CaseStudyDetails = () => {
           {caseStudies.slice(0, 3).map((item) => (
             <div
               key={item.id}
-              className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300"
+              className="group bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300"
             >
               
               {/* IMAGE */}
@@ -230,7 +231,7 @@ const CaseStudyDetails = () => {
 
               {/* CONTENT */}
               <div className="p-5">
-                <h3 className="text-lg font-semibold text-black group-hover:text-orange-500 transition leading-snug">
+                <h3 className="text-lg font-semibold text-black dark:text-white group-hover:text-orange-500 transition leading-snug">
                   {item.title}
                 </h3>
               </div>

@@ -42,7 +42,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="bg-gray-50 pt-16 md:pt-20 overflow-hidden">
+    <div className="bg-gray-50 pt-20 sm:pt-24 md:pt-28 overflow-hidden dark:bg-gray-900">
       
       {/* HEADER */}
       <PageHeader title="Frequently Asked Questions" />
@@ -52,12 +52,13 @@ const FAQ = () => {
         
         {/* TITLE */}
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 dark:text-white leading-tight">
             Frequently Asked Questions
           </h2>
 
-          <p className="text-sm sm:text-base text-gray-500 mt-3 max-w-2xl mx-auto">
-            Find answers to common questions about our services, courses, and internships.
+          <p className="text-sm sm:text-base text-gray-500 dark:text-gray-300 mt-3 max-w-2xl mx-auto">
+            Find answers to common questions about our services, courses, and
+            internships.
           </p>
         </div>
 
@@ -66,7 +67,7 @@ const FAQ = () => {
           {faqData.map((item, index) => (
             <div
               key={item.id}
-              className="bg-white rounded-xl md:rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition duration-300 hover:shadow-md"
+              className="bg-white dark:bg-gray-800 rounded-xl md:rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden transition duration-300 hover:shadow-md"
             >
               
               {/* QUESTION */}
@@ -74,7 +75,7 @@ const FAQ = () => {
                 onClick={() => toggle(index)}
                 className="w-full flex items-start justify-between gap-4 p-4 sm:p-5 md:p-6 text-left"
               >
-                <span className="font-semibold text-gray-800 text-sm sm:text-base md:text-lg leading-6">
+                <span className="font-semibold text-gray-800 dark:text-white text-sm sm:text-base md:text-lg leading-6">
                   {item.question}
                 </span>
 
@@ -92,7 +93,7 @@ const FAQ = () => {
                 }`}
               >
                 <div className="px-4 sm:px-5 md:px-6 pb-5 md:pb-6">
-                  <p className="text-gray-600 text-sm sm:text-base leading-7">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-7">
                     {item.answer}
                   </p>
                 </div>
@@ -100,7 +101,6 @@ const FAQ = () => {
             </div>
           ))}
         </div>
-
       </div>
 
       {/* CTA */}

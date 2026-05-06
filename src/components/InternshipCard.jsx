@@ -16,6 +16,7 @@ const InternshipCard = ({ item }) => {
         bg-gray-200 backdrop-blur-lg border border-orange-100
         rounded-2xl sm:rounded-3xl 
         p-5 sm:p-6 md:p-8
+        dark:bg-gray-800 
         shadow-md transition duration-500 
         hover:shadow-2xl hover:-translate-y-2 md:hover:-translate-y-3 hover:bg-orange-400
       "
@@ -36,6 +37,7 @@ const InternshipCard = ({ item }) => {
         <h3
           className="
           text-base sm:text-lg md:text-xl 
+          dark:text-white
           font-semibold text-gray-800 mb-2 text-center 
           group-hover:text-white transition
         "
@@ -47,6 +49,7 @@ const InternshipCard = ({ item }) => {
         <p
           className="
           text-xs sm:text-sm md:text-base 
+          dark:text-white
           text-gray-500 text-center leading-relaxed 
           group-hover:text-white transition
         "

@@ -6,7 +6,7 @@ import PageHeader from "../components/PageHeader";
 
 const Services = () => {
   return (
-    <div className="bg-gray-100 pt-16 md:pt-20">
+    <div className="bg-gray-100 pt-16 md:pt-20 dark:bg-gray-900 transition-colors duration-300">
       
       {/* HEADER */}
       <PageHeader title="Services" />

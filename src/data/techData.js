@@ -26,7 +26,7 @@ Without backend systems, applications cannot process user requests, store data, 
 
 In today’s industry, backend developers are highly in demand because every scalable system—whether it is e-commerce, banking, or social media—depends heavily on strong backend architecture.`,
 
-    items: ["Python", "Node.js", "Java", "PHP", "Go", "Rust"],
+    items: ["Python Django", "Node.js", "Java Spring Boot", "PHP Laravel", ".NET Development"],
     icons: [FaPython, FaNodeJs, FaJava],
     features: ["API Development", "Authentication", "Database handling"],
     useCases: ["Web apps", "Mobile apps", "APIs"],
@@ -43,7 +43,7 @@ A strong frontend ensures that users can easily navigate and interact with the a
 
 In today’s digital world, frontend developers play a crucial role in shaping user perception of a product. A well-designed UI/UX can significantly increase user engagement, retention, and overall business success.`,
 
-    items: ["React", "Angular", "Next.js", "JavaScript", "Vue.js", "HTML"],
+    items: ["React.js", "Angular","JavaScript", "Vue.js"],
     icons: [FaAngular, FaReact, FaHtml5],
     features: ["UI Development", "Responsive Design", "Component-based Architecture"],
     useCases: ["Websites", "Dashboards", "Web apps"],
@@ -60,7 +60,7 @@ Mobile apps have become essential in daily life, from ordering food to booking t
 
 With the rise of smartphones, mobile development has become one of the fastest-growing fields in IT. Companies are heavily investing in mobile-first strategies, making mobile developers highly valuable in the job market.`,
 
-    items: ["React Native", "Kotlin", "Ionic", "Flutter", "Swift"],
+    items: ["React Native", "Android Development","Flutter","iOS Development",  "Xamarin"],
     icons: [SiFlutter, SiKotlin, FaSwift],
     features: ["Cross-platform Apps", "Native Performance", "UI/UX Optimization"],
     useCases: ["Mobile apps", "Hybrid apps", "Enterprise apps"],
@@ -77,7 +77,7 @@ Databases play a critical role in every software system, from small websites to 
 
 Modern applications rely on both SQL and NoSQL databases depending on the type of data. Proper database design improves performance, reduces redundancy, and ensures system reliability.`,
 
-    items: ["MongoDB", "Firebase", "Oracle", "PostgreSQL", "MySQL"],
+    items: ["MongoDB", "Oracle", "PostgreSQL", "MySQL"],
     icons: [SiMongodb, SiFirebase, BiLogoPostgresql],
     features: ["Data Storage", "Query Optimization", "Scalability"],
     useCases: ["Web apps", "Analytics systems", "Cloud apps"],
