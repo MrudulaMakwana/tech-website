@@ -13,7 +13,7 @@ const internshipData = [
  // ================= DJANGO =================
   {
     id: 1,
-     courseId: 1,
+     courseId: 8,
     title: "Python Django",
     slug: "python-django",
     desc: "Python Backend Framework",
@@ -323,7 +323,7 @@ const internshipData = [
 // ================= NODE =================
   {
     id: 2,
-     courseId: 2,
+     courseId: 4,
     title: "Node.js",
     slug: "node-js",
     desc: "Backend JavaScript Runtime",
@@ -633,7 +633,7 @@ const internshipData = [
   // ================= JAVA =================
   {
     id: 3,
-     courseId: 3,
+     courseId: 2,
     title: "Java Development",
     slug: "java-development",
     desc: "Core Java + Spring Boot",
@@ -939,7 +939,7 @@ const internshipData = [
   // ================= LARAVEL =================
   {
     id: 4,
-     courseId: 4,
+     courseId: 1,
     title: "PHP Laravel",
     slug: "php-laravel",
     desc: "PHP Full Stack Framework",
@@ -1251,7 +1251,7 @@ const internshipData = [
  // ================= .NET =================
   {
     id: 5,
-     courseId: 5,
+     courseId: 3,
     title: ".NET Development",
     slug: "dotnet-development",
     desc: "ASP.NET Core Backend",
@@ -1562,7 +1562,7 @@ const internshipData = [
   // ================= REACT =================
   {
     id: 6,
-     courseId: 6,
+     courseId: 7,
     title: "React.js",
     slug: "react-js",
     desc: "Frontend Library",

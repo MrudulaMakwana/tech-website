@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 const ApplyFormModal = ({ plan, techTitle, courseId, onClose }) => {
   const [loading, setLoading] = useState(false);
-  const BASE_URL = "http://127.0.0.1:8000";
+  const BASE_URL = "https://karmyog.pythonanywhere.com";
   const [formData, setFormData] = useState({
     fullName: "",
     mobile: "",
@@ -187,12 +187,13 @@ const ApplyFormModal = ({ plan, techTitle, courseId, onClose }) => {
               outline-none transition"
           >
             <option value="">Select Department *</option>
-            <option value="1">BCA</option>
-            <option value="2">B.E/B.Tech</option>
+            <option value="1">MSC.IT</option>
+            <option value="2">MCA</option>
             <option value="3">BSC.IT</option>
-            <option value="4">DIPLOMA CE/IT</option>
-            <option value="5">MCA</option>
-            <option value="6">MSC.IT</option>
+            <option value="4">BCA</option>
+            <option value="5">B.E/B.Tech</option>
+            <option value="6">DIPLOMA CE/IT</option>
+            <option value="7">Other</option>
           </select>
 
           {/* CITY */}

@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ContactUsPage = () => {
-  const BASE_URL = "http://127.0.0.1:8000";
+  const BASE_URL = "https://karmyog.pythonanywhere.com";
   const [formData, setFormData] = useState({
     Name: "",
     Email: "",
