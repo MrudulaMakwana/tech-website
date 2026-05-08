@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 const heroData = [
   {
     title: "Providing the Best IT Solutions for Your Business",
-    desc:"Providing high-quality IT solutions with modern technologies, customer-focused strategies, innovative digital services, and scalable business solutions to help companies grow, improve efficiency, and achieve long-term success in the competitive market.",
+    desc:"Empowering businesses with modern IT solutions, web development, and innovative digital services for long-term growth and success.",
     image: heroImg,
   },
   {
