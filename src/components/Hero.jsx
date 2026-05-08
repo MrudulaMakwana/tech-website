@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 const heroData = [
   {
     title: "Providing the Best IT Solutions for Your Business",
-    desc: "Providing the best services and IT solutions requires a combination of technical expertise, customer-focused strategies, and cutting-edge technologies. Whether you are an IT service provider, a digital agency, or a consulting firm, delivering high-quality services that solve business challenges is key to building long-term client relationships and achieving success.",
+    desc:"Providing high-quality IT solutions with modern technologies, customer-focused strategies, innovative digital services, and scalable business solutions to help companies grow, improve efficiency, and achieve long-term success in the competitive market.",
     image: heroImg,
   },
   {
@@ -88,7 +88,7 @@ const Hero = () => {
                     {item.title}
                   </h1>
 
-                  <p className="mt-5 text-sm md:text-lg max-w-md mx-auto md:mx-0 text-gray-600 dark:text-gray-300">
+                  <p className="mt-5 text-sm md:text-lg w-full md:w-[500px] mx-auto md:mx-0 text-gray-600 dark:text-gray-300 leading-relaxed">
                     {item.desc}
                   </p>
 
