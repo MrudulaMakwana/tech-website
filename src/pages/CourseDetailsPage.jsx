@@ -19,7 +19,7 @@ import "react-toastify/dist/ReactToastify.css";
 const CourseDetailsPage = () => {
   const { slug } = useParams();
 
-  const BASE_URL = "https://karmyog.pythonanywhere.com";
+  const BASE_URL =import.meta.env.VITE_BASE_URL;
 
   const [openIndex, setOpenIndex] = useState(null);
   const [activeTab, setActiveTab] = useState("curriculum");
