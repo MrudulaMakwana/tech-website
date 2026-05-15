@@ -58,8 +58,7 @@ const Team = ({ showHeader = true, limit }) => {
                 <img
                   src={member.img}
                   alt={member.name}
-                  className="w-[70%] sm:w-[80%] md:w-full h-full mx-auto object-contain p-2 sm:p-3
-                    transition duration-500 group-hover:scale-105"/>
+                  className=" w-full h-full object-cover transition duration-500 group-hover:scale-105 "/>
               </div>
 
               {/* CONTENT */}

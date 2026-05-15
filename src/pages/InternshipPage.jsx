@@ -196,7 +196,7 @@ const InternshipPage = () => {
                           </h4>
 
                           <p className="text-xs md:text-sm text-orange-500">
-                            {item.role}
+                            {item.technology}
                           </p>
                         </div>
                       </div>

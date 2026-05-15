@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import jsPDF from "jspdf";
 import bg from "./../assets/images/course-details-bg.jpg";
 import CourseCard from "../components/CourseCard";
 import courses from "../data/coursesData";
-
 import {
   FaEnvelope,
   FaTwitter,
@@ -12,19 +12,15 @@ import {
   FaPlus,
   FaMinus,
 } from "react-icons/fa";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const CourseDetailsPage = () => {
   const { slug } = useParams();
-
-  const BASE_URL =import.meta.env.VITE_BASE_URL;
-
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
   const [openIndex, setOpenIndex] = useState(null);
   const [activeTab, setActiveTab] = useState("curriculum");
   const [showModal, setShowModal] = useState(false);
-
   const [sidebarLoading, setSidebarLoading] = useState(false);
   const [modalLoading, setModalLoading] = useState(false);
 
@@ -39,6 +35,9 @@ const CourseDetailsPage = () => {
     email: "",
     contact: "",
   });
+
+  const [sidebarErrors, setSidebarErrors] = useState({});
+  const [modalErrors, setModalErrors] = useState({});
 
   const course = courses.find((item) => item.slug === slug);
 
@@ -55,25 +54,131 @@ const CourseDetailsPage = () => {
     );
   }
 
-  // MODAL INPUT CHANGE
+  const validateForm = (data) => {
+    const errors = {};
+
+    // NAME
+    if (!data.fullName || data.fullName.trim().length < 3) {
+      errors.fullName = "Name must be at least 3 characters";
+    }
+
+    // EMAIL
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!data.email || !emailRegex.test(data.email)) {
+      errors.email = "Enter a valid email address";
+    }
+
+    // CONTACT
+    const phoneRegex = /^[0-9]{10}$/;
+
+    if (!data.contact || !phoneRegex.test(data.contact)) {
+      errors.contact = "Enter valid 10 digit number";
+    }
+
+    return errors;
+  };
+
+  // ================= PDF DOWNLOAD =================
+  const downloadCurriculumPDF = () => {
+    const doc = new jsPDF();
+
+    let y = 20;
+
+    // TITLE
+    doc.setFontSize(24);
+    doc.setTextColor(255, 102, 0);
+
+    doc.text(`${course.title} Curriculum`, 20, y);
+
+    y += 8;
+
+    // LINE
+    doc.setDrawColor(255, 102, 0);
+    doc.line(20, y, 190, y);
+
+    y += 15;
+
+    // USER INFO
+    doc.setFontSize(12);
+    doc.setTextColor(80);
+
+    doc.text(`Downloaded by: ${modalFormData.fullName}`, 20, y);
+
+    y += 8;
+
+    doc.text(`Email: ${modalFormData.email}`, 20, y);
+
+    y += 15;
+
+    // CURRICULUM
+    course.curriculum.forEach((phase, index) => {
+      if (y > 260) {
+        doc.addPage();
+        y = 20;
+      }
+
+      doc.setFontSize(16);
+      doc.setTextColor(0);
+
+      doc.text(`${index + 1}. ${phase.title}`, 20, y);
+
+      y += 10;
+
+      doc.setFontSize(12);
+
+      phase.content.forEach((topic) => {
+        if (y > 280) {
+          doc.addPage();
+          y = 20;
+        }
+
+        doc.text(`• ${topic}`, 30, y);
+
+        y += 8;
+      });
+
+      y += 10;
+    });
+
+    doc.save(`${course.title}-curriculum.pdf`);
+  };
+
+  // ================= MODAL INPUT CHANGE =================
   const handleModalChange = (e) => {
     setModalFormData({
       ...modalFormData,
       [e.target.name]: e.target.value,
     });
+
+    setModalErrors({
+      ...modalErrors,
+      [e.target.name]: "",
+    });
   };
 
-  // SIDEBAR INPUT CHANGE
+  // ================= SIDEBAR INPUT CHANGE =================
   const handleSidebarChange = (e) => {
     setSidebarFormData({
       ...sidebarFormData,
       [e.target.name]: e.target.value,
     });
+
+    setSidebarErrors({
+      ...sidebarErrors,
+      [e.target.name]: "",
+    });
   };
 
-  // SIDEBAR FORM SUBMIT
+  // ================= SIDEBAR SUBMIT =================
   const handleSidebarSubmit = async (e) => {
     e.preventDefault();
+
+    const errors = validateForm(sidebarFormData);
+
+    setSidebarErrors(errors);
+
+    if (Object.keys(errors).length > 0) return;
 
     setSidebarLoading(true);
 
@@ -98,12 +203,14 @@ const CourseDetailsPage = () => {
 
       if (response.ok) {
         toast.success("Inquiry sent successfully");
-        console.log("Data:",payload)
+
         setSidebarFormData({
           fullName: "",
           email: "",
           contact: "",
         });
+
+        setSidebarErrors({});
       } else {
         toast.error(data?.message || "Something went wrong");
       }
@@ -114,9 +221,15 @@ const CourseDetailsPage = () => {
     }
   };
 
-  // MODAL FORM SUBMIT
+  // ================= MODAL SUBMIT =================
   const handleModalSubmit = async (e) => {
     e.preventDefault();
+
+    const errors = validateForm(modalFormData);
+
+    setModalErrors(errors);
+
+    if (Object.keys(errors).length > 0) return;
 
     setModalLoading(true);
 
@@ -141,13 +254,20 @@ const CourseDetailsPage = () => {
 
       if (response.ok) {
         toast.success("Inquiry sent successfully");
-        console.log('Data',payload)
+
+        // DOWNLOAD PDF
+        downloadCurriculumPDF();
+
+        // RESET FORM
         setModalFormData({
           fullName: "",
           email: "",
           contact: "",
         });
 
+        setModalErrors({});
+
+        // CLOSE MODAL
         setShowModal(false);
       } else {
         toast.error(data?.message || "Something went wrong");
@@ -215,41 +335,8 @@ const CourseDetailsPage = () => {
               </button>
             </div>
 
-            {/* TAB CONTENT */}
-            <div className="mt-6 text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-7">
-              {/* OVERVIEW */}
-              {activeTab === "overview" && (
-                <>
-                  <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">
-                    {course.title} Course Description
-                  </h2>
-
-                  <p>
-                    Learn {course.title} from beginner to advanced level with
-                    real-world projects and industry-focused training.
-                  </p>
-
-                  <h2 className="text-xl font-semibold text-gray-800 dark:text-white mt-8 mb-3">
-                    Certification
-                  </h2>
-
-                  <p>
-                    Get industry-recognized certification after successful
-                    completion of the course.
-                  </p>
-
-                  <h2 className="text-xl font-semibold text-gray-800 dark:text-white mt-8 mb-3">
-                    Who This Course is For
-                  </h2>
-
-                  <p>
-                    Students, beginners, working professionals, and anyone
-                    interested in learning modern technologies.
-                  </p>
-                </>
-              )}
-
-              {/* CURRICULUM */}
+            {/* CONTENT */}
+            <div className="mt-6">
               {activeTab === "curriculum" && (
                 <div>
                   {/* TOP */}
@@ -280,7 +367,7 @@ const CourseDetailsPage = () => {
                               openIndex === index ? null : index
                             )
                           }
-                          className="w-full flex items-center justify-between px-5 py-4 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
+                          className="w-full flex items-center justify-between px-5 py-4 bg-white dark:bg-gray-800"
                         >
                           <span className="font-semibold text-left text-gray-800 dark:text-white">
                             {item.title}
@@ -293,7 +380,7 @@ const CourseDetailsPage = () => {
                           )}
                         </button>
 
-                        {/* CONTENT */}
+                        {/* BODY */}
                         {openIndex === index && (
                           <div className="px-8 py-5 bg-gray-50 dark:bg-gray-900">
                             <ul className="list-disc space-y-2 text-black dark:text-gray-200">
@@ -315,7 +402,6 @@ const CourseDetailsPage = () => {
         {/* RIGHT SIDE */}
         <div className="sticky top-24 h-fit">
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
-            {/* TOP */}
             <div className="bg-orange-500 p-6 text-white">
               <h2 className="text-2xl font-bold">Attend a Free Demo</h2>
 
@@ -324,38 +410,61 @@ const CourseDetailsPage = () => {
               </p>
             </div>
 
-            {/* SIDEBAR FORM */}
             <form onSubmit={handleSidebarSubmit}>
               <div className="p-6 space-y-4">
-                <input
-                  type="text"
-                  name="fullName"
-                  value={sidebarFormData.fullName}
-                  onChange={handleSidebarChange}
-                  placeholder="Your Name"
-                  required
-                  className={inputClass}
-                />
+                {/* NAME */}
+                <div>
+                  <input
+                    type="text"
+                    name="fullName"
+                    value={sidebarFormData.fullName}
+                    onChange={handleSidebarChange}
+                    placeholder="Your Name"
+                    className={inputClass}
+                  />
 
-                <input
-                  type="email"
-                  name="email"
-                  value={sidebarFormData.email}
-                  onChange={handleSidebarChange}
-                  placeholder="Email Address"
-                  required
-                  className={inputClass}
-                />
+                  {sidebarErrors.fullName && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {sidebarErrors.fullName}
+                    </p>
+                  )}
+                </div>
 
-                <input
-                  type="tel"
-                  name="contact"
-                  value={sidebarFormData.contact}
-                  onChange={handleSidebarChange}
-                  placeholder="+91 Contact Number"
-                  required
-                  className={inputClass}
-                />
+                {/* EMAIL */}
+                <div>
+                  <input
+                    type="email"
+                    name="email"
+                    value={sidebarFormData.email}
+                    onChange={handleSidebarChange}
+                    placeholder="Email Address"
+                    className={inputClass}
+                  />
+
+                  {sidebarErrors.email && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {sidebarErrors.email}
+                    </p>
+                  )}
+                </div>
+
+                {/* CONTACT */}
+                <div>
+                  <input
+                    type="tel"
+                    name="contact"
+                    value={sidebarFormData.contact}
+                    onChange={handleSidebarChange}
+                    placeholder="10 Digit Contact Number"
+                    className={inputClass}
+                  />
+
+                  {sidebarErrors.contact && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {sidebarErrors.contact}
+                    </p>
+                  )}
+                </div>
 
                 <button
                   type="submit"
@@ -366,40 +475,7 @@ const CourseDetailsPage = () => {
                 </button>
               </div>
             </form>
-
-            {/* SOCIAL */}
-            <div className="px-6 pb-6">
-              <p className="text-center text-orange-500 font-medium mb-4">
-                Share This Course
-              </p>
-
-              <div className="flex justify-center gap-3">
-                {[FaEnvelope, FaTwitter, FaLinkedinIn, FaInstagram].map(
-                  (Icon, i) => (
-                    <div
-                      key={i}
-                      className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white hover:bg-orange-500 hover:text-white transition cursor-pointer"
-                    >
-                      <Icon size={14} />
-                    </div>
-                  )
-                )}
-              </div>
-            </div>
           </div>
-        </div>
-      </div>
-
-      {/* MORE COURSES */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 dark:text-white mb-10">
-          More Courses You Might Like
-        </h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {courses.slice(0, 3).map((course) => (
-            <CourseCard key={course.id} course={course} />
-          ))}
         </div>
       </div>
 
@@ -415,7 +491,9 @@ const CourseDetailsPage = () => {
           >
             {/* TOP */}
             <div className="bg-orange-500 p-6 text-white relative">
-              <h2 className="text-2xl font-bold">Attend a Free Demo</h2>
+              <h2 className="text-2xl font-bold">
+                Download Curriculum
+              </h2>
 
               <button
                 onClick={() => setShowModal(false)}
@@ -425,49 +503,75 @@ const CourseDetailsPage = () => {
               </button>
 
               <p className="text-sm mt-2 text-orange-100">
-                Fill the details and we will contact you shortly
+                Fill details to download curriculum PDF
               </p>
             </div>
 
-            {/* MODAL FORM */}
+            {/* FORM */}
             <form onSubmit={handleModalSubmit}>
               <div className="p-6 space-y-4">
-                <input
-                  type="text"
-                  name="fullName"
-                  value={modalFormData.fullName}
-                  onChange={handleModalChange}
-                  placeholder="Your Name"
-                  required
-                  className={inputClass}
-                />
+                {/* NAME */}
+                <div>
+                  <input
+                    type="text"
+                    name="fullName"
+                    value={modalFormData.fullName}
+                    onChange={handleModalChange}
+                    placeholder="Your Name"
+                    className={inputClass}
+                  />
 
-                <input
-                  type="email"
-                  name="email"
-                  value={modalFormData.email}
-                  onChange={handleModalChange}
-                  placeholder="Email Address"
-                  required
-                  className={inputClass}
-                />
+                  {modalErrors.fullName && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {modalErrors.fullName}
+                    </p>
+                  )}
+                </div>
 
-                <input
-                  type="tel"
-                  name="contact"
-                  value={modalFormData.contact}
-                  onChange={handleModalChange}
-                  placeholder="+91 Contact Number"
-                  required
-                  className={inputClass}
-                />
+                {/* EMAIL */}
+                <div>
+                  <input
+                    type="email"
+                    name="email"
+                    value={modalFormData.email}
+                    onChange={handleModalChange}
+                    placeholder="Email Address"
+                    className={inputClass}
+                  />
+
+                  {modalErrors.email && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {modalErrors.email}
+                    </p>
+                  )}
+                </div>
+
+                {/* CONTACT */}
+                <div>
+                  <input
+                    type="tel"
+                    name="contact"
+                    value={modalFormData.contact}
+                    onChange={handleModalChange}
+                    placeholder="10 Digit Contact Number"
+                    className={inputClass}
+                  />
+
+                  {modalErrors.contact && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {modalErrors.contact}
+                    </p>
+                  )}
+                </div>
 
                 <button
                   type="submit"
                   disabled={modalLoading}
                   className="w-full bg-orange-500 hover:bg-black transition text-white py-3 rounded-xl font-semibold"
                 >
-                  {modalLoading ? "Sending..." : "Send Inquiry"}
+                  {modalLoading
+                    ? "Generating PDF..."
+                    : "Download Now"}
                 </button>
               </div>
             </form>

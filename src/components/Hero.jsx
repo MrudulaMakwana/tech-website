@@ -1,9 +1,10 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Autoplay, Navigation } from "swiper/modules";
+
 import heroImg from "../assets/images/hero.png";
 import { FaPlay } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -26,7 +27,7 @@ const heroData = [
   },
   {
     title: "Internship & Training Programs",
-    desc: "Get industry-ready with our hands-on internship programs in React, Java, Python, and more.",
+    desc: "Get industry-ready with our hands-on internship programs in React, Java, Python, MERN Stack, and more.",
     image: heroImg,
   },
 ];
@@ -45,18 +46,18 @@ const Hero = () => {
           <button
             ref={prevRef}
             className="
-    absolute
-    left-2 md:left-2 lg:left-5
-    top-[78%] md:top-1/2
-    md:-translate-y-1/2
-    text-orange-500
-    text-4xl md:text-6xl
-    font-bold
-    transition-all duration-300
-    hover:text-orange-600
-    z-20
-    cursor-pointer
-  "
+              absolute
+              left-2 md:left-2 lg:left-5
+              top-[78%] md:top-1/2
+              md:-translate-y-1/2
+              text-orange-500
+              text-4xl md:text-6xl
+              font-bold
+              transition-all duration-300
+              hover:text-orange-600
+              z-20
+              cursor-pointer
+            "
           >
             &#8249;
           </button>
@@ -65,48 +66,43 @@ const Hero = () => {
           <button
             ref={nextRef}
             className="
-    absolute
-    right-2 md:right-2 lg:right-5
-    top-[78%] md:top-1/2
-    md:-translate-y-1/2
-    text-orange-500
-    text-4xl md:text-6xl
-    font-bold
-    transition-all duration-300
-    hover:text-orange-600
-    z-20
-    cursor-pointer
-  "
+              absolute
+              right-2 md:right-2 lg:right-5
+              top-[78%] md:top-1/2
+              md:-translate-y-1/2
+              text-orange-500
+              text-4xl md:text-6xl
+              font-bold
+              transition-all duration-300
+              hover:text-orange-600
+              z-20
+              cursor-pointer
+            "
           >
             &#8250;
           </button>
 
-          {/* SWIPER CONTAINER */}
+          {/* SWIPER */}
           <div className="px-2 sm:px-4 md:px-10 lg:px-16">
             <Swiper
               modules={[Autoplay, Navigation]}
+              loop={true}
               autoplay={{
                 delay: 10000,
                 disableOnInteraction: false,
               }}
-              loop={true}
               navigation={{
                 prevEl: prevRef.current,
                 nextEl: nextRef.current,
               }}
               onBeforeInit={(swiper) => {
-                swiper.params.navigation.prevEl = prevRef.current;
-                swiper.params.navigation.nextEl = nextRef.current;
-              }}
-              onSwiper={(swiper) => {
-                setTimeout(() => {
+                if (
+                  typeof swiper.params.navigation !== "boolean" &&
+                  swiper.params.navigation
+                ) {
                   swiper.params.navigation.prevEl = prevRef.current;
                   swiper.params.navigation.nextEl = nextRef.current;
-
-                  swiper.navigation.destroy();
-                  swiper.navigation.init();
-                  swiper.navigation.update();
-                });
+                }
               }}
             >
               {heroData.map((item, index) => (
@@ -152,7 +148,7 @@ const Hero = () => {
                           onClick={() =>
                             window.open(
                               "https://youtube.com/@infinity3technology",
-                              "_blank",
+                              "_blank"
                             )
                           }
                         >

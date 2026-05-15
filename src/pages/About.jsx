@@ -125,7 +125,7 @@ const About = () => {
         </div>
       </div>
 
-      <OurHistory />
+      {/* <OurHistory /> */}
       <DataScienceProcess />
       <Team limit={4} showHeader={true} />
       <Testimonials />

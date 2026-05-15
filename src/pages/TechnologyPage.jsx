@@ -30,7 +30,6 @@ const TechnologyPage = () => {
               .toLowerCase()
               .replace(/[^a-z0-9]+/g, "-")
               .replace(/^-+|-+$/g, "");
-            console.log("slug for technology", slug);
             return (
               <div
                 key={index}

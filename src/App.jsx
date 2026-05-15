@@ -28,6 +28,10 @@ import TechnologyPage from "./pages/TechnologyPage";
 import TechnologyDetails from "./pages/TechnologyDetails";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CareerPath from "./pages/CareerPath";
+import RoadmapDetails from "./pages/RoadmapDetails";
+import FullRoadmapDetails from "./pages/FullRoadmapDetails";
+// import TopicDetails from "./pages/TopicDetails";
 function App() {
   return (
     <>
@@ -36,6 +40,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/career-path" element={<CareerPath />} />
+        <Route path="/roadmap/:tech" element={<RoadmapDetails />} />
+         <Route path="/roadmap/:tech/:slug" element={<FullRoadmapDetails />}
+        />
+        {/* <Route path="/topic/:slug" element={<TopicDetails />} /> */}
         <Route path="/services" element={<Services />} />
         <Route path="/service-details/:id" element={<ServicesDetails />} />
         <Route path="/blog" element={<BlogGrid />} />
@@ -53,12 +62,15 @@ function App() {
         <Route path="/internship" element={<InternshipPage />} />
         <Route path="/technology" element={<TechnologyPage />} />
         <Route path="/technology/:slug" element={<TechnologyDetails />} />
-        <Route path="/internship-details/:slug" element={<InternshipDetails />}/>
+        <Route
+          path="/internship-details/:slug"
+          element={<InternshipDetails />}
+        />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/event-details/:id" element={<EventDetailsPage />} />
         <Route path="/search" element={<SearchResults />} />
       </Routes>
-      
+
       <ToastContainer position="top-right" autoClose={3000} />
       <Footer />
     </>

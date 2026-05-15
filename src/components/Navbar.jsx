@@ -140,6 +140,17 @@ const Navbar = () => {
               {/* <FaChevronDown size={12} /> */}
             </div>
           </li>
+
+          <li
+            className="relative"
+            onMouseEnter={() => setOpenDropdown("career")}
+            onMouseLeave={() => setOpenDropdown(null)}
+          >
+            <div className="flex items-center gap-1 cursor-pointer hover:text-orange-500">
+              <Link to="/career-path">Career Path</Link>
+            </div>
+          </li>
+
           {/* about */}
           <li
             className="relative"
@@ -152,14 +163,33 @@ const Navbar = () => {
             <div className="flex items-center gap-1 cursor-pointer hover:text-orange-500">
               About <FaChevronDown size={12} />
             </div>
+{openDropdown === "about" && (
+  <div
+    className="
+    absolute
+    top-full
+    left-0
+    pt-3
+    z-50
+    "
+  >
+    <div
+      className="
+      w-max
+      min-w-[180px]
+      overflow-hidden
+      rounded-2xl
+      border
+      border-gray-200
+      dark:border-gray-700
+      bg-white
+      dark:bg-gray-800
+      shadow-2xl
+      "
+    >
+      <span className="block h-1 bg-orange-500"></span>
 
-            {openDropdown === "about" && (
-              <div
-                className={`absolute top-full left-0 dark:bg-gray-800 bg-white shadow-lg rounded-md w-56`}
-              >
-                <span className="block h-1 bg-orange-500"></span>
-
-                <ul className="py-2 text-sm">
+      <ul className="py-2 text-sm">
                   <li>
                     <Link
                       to="/about"
@@ -203,8 +233,12 @@ const Navbar = () => {
                     </Link>
                   </li>
                 </ul>
-              </div>
-            )}
+    </div>
+  </div>
+)}
+
+
+           
           </li>
         </ul>
 
@@ -318,6 +352,13 @@ const Navbar = () => {
               className="block px-3 py-2 rounded-md hover:bg-white/10 hover:text-orange-400 transition"
             >
               Portfolio
+            </Link>
+            <Link
+              to="/career-path"
+              onClick={() => setIsOpen(false)}
+              className="block px-3 py-2 rounded-md hover:bg-white/10 hover:text-orange-400 transition"
+            >
+              Career Path
             </Link>
 
             {/* About Dropdown */}

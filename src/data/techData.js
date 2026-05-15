@@ -118,6 +118,8 @@ AI is now widely used in healthcare, finance, transportation, and automation sys
     roadmap: ["Learn Python", "Understand Math & Statistics", "Study ML algorithms", "Build AI projects"],
     projects: ["Chatbot AI", "Image Classifier", "Recommendation System"],
   },
+
+  
 ];
 
 export default techData;
