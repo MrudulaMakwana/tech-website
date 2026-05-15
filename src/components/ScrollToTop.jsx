@@ -38,10 +38,11 @@ const ScrollToTop = () => {
   ]);
 
   // API CALL
+  const API_URL = import.meta.env.VITE_URL_PORT;
 
   const askGemini = async (userMessage, extraData = {}) => {
     try {
-      const response = await fetch("http://localhost:8001/api/chat", {
+      const response = await fetch(`${API_URL}/api/chat`, {
         method: "POST",
 
         headers: {
