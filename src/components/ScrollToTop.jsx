@@ -390,8 +390,6 @@ ${data.roadmap}
       {visible && (
         <>
           {/* FLOATING BUTTONS */}
-
-          {/* FLOATING BUTTONS */}
           <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
             {/* CHATBOT + TEXT (LEFT SIDE MESSAGE) */}
             <div className="flex flex-col items-end gap-3">
