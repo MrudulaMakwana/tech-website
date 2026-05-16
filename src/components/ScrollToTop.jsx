@@ -455,7 +455,7 @@ ${data.roadmap}
 
               {/* MESSAGES */}
 
-              <div className="flex-1 overflow-y-auto px-4 py-5 bg-gray-100 dark:bg-gray-800 space-y-4">
+              <div className="flex-1 overflow-y-auto chat-scroll px-4 py-5 bg-gray-100 dark:bg-gray-800 space-y-4">
                 {messages.map((msg, index) => (
                   <div key={index} className="space-y-2">
                     {/* MESSAGE */}

@@ -1655,7 +1655,7 @@ const courses = [
 
 // newly -added--->id 26 and 27
 {
-  id: 26,
+  id: 10,
   title: "HTML",
   tech: "frontend",
   slug: "html",
@@ -1810,7 +1810,7 @@ const courses = [
   ],
 },
 {
-  id: 27,
+  id: 11,
   title: "CSS",
   tech: "frontend",
   slug: "css",
@@ -2000,7 +2000,7 @@ const courses = [
   // ================= MOBILE =================
 
  {
-  id: 10,
+  id: 12,
   title: "React Native",
   tech: "mobile-development",
   slug: "react-native",
@@ -2206,7 +2206,7 @@ const courses = [
 },
 
  {
-  id: 11,
+  id: 13,
   title: "Flutter",
   tech: "mobile-development",
   slug: "flutter",
@@ -2403,7 +2403,7 @@ const courses = [
 },
 
  {
-  id: 12,
+  id: 14,
   title: "Android Development",
    tech: "mobile-development",
   slug: "android-development",
@@ -2588,7 +2588,7 @@ const courses = [
 
 
 {
-  id: 13,
+  id: 15,
   title: "iOS Development",
    tech: "mobile-development",
   slug: "ios-development",
@@ -2762,7 +2762,7 @@ const courses = [
 },
 
 {
-  id: 14,
+  id: 16,
   title: "Xamarin",
    tech: "mobile-development",
   slug: "xamarin",
@@ -2897,7 +2897,7 @@ const courses = [
   // ================= DATABASE =================
 
  {
-  id: 15,
+  id: 17,
   title: "MongoDB",
    tech: "database",
   slug: "mongodb",
@@ -3010,7 +3010,7 @@ const courses = [
 },
 
  {
-  id: 16,
+  id: 18,
   title: "PostgreSQL",
   tech: "database",
   slug: "postgresql",
@@ -3133,7 +3133,7 @@ const courses = [
 },
 
  {
-  id: 17,
+  id: 19,
   title: "Oracle Database",
   tech: "database",
   slug: "oracle",
@@ -3254,7 +3254,7 @@ const courses = [
 },
 
 {
-  id: 18,
+  id: 20,
   title: "MySQL",
   tech: "database",
   slug: "mysql",
@@ -3361,7 +3361,7 @@ const courses = [
   // ================= CYBER SECURITY =================
 
  {
-  id: 19,
+  id: 21,
   title: "Ethical Hacking",
   tech: "cyber-security",
   slug: "ethical-hacking",
@@ -3470,7 +3470,7 @@ const courses = [
 },
 
   {
-  id: 20,
+  id: 22,
   title: "Network Security",
   tech: "cyber-security",
   slug: "network-security",
@@ -3580,7 +3580,7 @@ const courses = [
 
 
 {
-  id: 21,
+  id: 23,
   title: "Cryptography",
   tech: "cyber-security",
   slug: "cryptography",
@@ -3691,7 +3691,7 @@ const courses = [
   // ================= AI / ML =================
 
   {
-  id: 22,
+  id: 24,
   title: "Machine Learning",
   slug: "machine-learning",
   tech: "ai-ml",
@@ -3789,7 +3789,7 @@ const courses = [
 
 
  {
-  id: 23,
+  id: 25,
   title: "Deep Learning",
     tech: "ai-ml",
   slug: "deep-learning",
@@ -3885,7 +3885,7 @@ const courses = [
 },
 
 {
-  id: 24,
+  id: 26,
   title: "Neural Networks",
     tech: "ai-ml",
   slug: "neural-networks",
@@ -3981,7 +3981,7 @@ const courses = [
 },
 
 {
-  id: 25,
+  id: 27,
   title: "Data Science",
     tech: "ai-ml",
   slug: "data-science",
@@ -4568,7 +4568,7 @@ const courses = [
 },
 
 {
-  id: 41,
+  id: 32,
   title: "Gemini AI",
   tech: "ai-tools",
   slug: "gemini-ai",
@@ -4720,7 +4720,7 @@ const courses = [
   ],
 },
 {
-  id: 51,
+  id: 35,
   title: "Bolt.new",
   tech: "ai-tools",
   slug: "bolt-new",
@@ -4769,7 +4769,7 @@ const courses = [
 },
 
 {
-  id: 52,
+  id: 36,
   title: "V0 by Vercel",
   tech: "ai-tools",
   slug: "v0-vercel",
@@ -4817,7 +4817,7 @@ const courses = [
   ],
 },
 {
-  id: 53,
+  id: 37,
   title: "GitHub Copilot",
   tech: "ai-tools",
   slug: "github-copilot",
@@ -4866,7 +4866,7 @@ const courses = [
 },
 
 {
-  id: 54,
+  id: 38,
   title: "Codeium",
   tech: "ai-tools",
   slug: "codeium",
@@ -4915,7 +4915,7 @@ const courses = [
 },
 // ================= CREATIVE / DESIGN =================
 {
-  id: 35,
+  id: 39,
   title: "Midjourney",
   tech: "ai-tools",
   slug: "midjourney",
@@ -4965,7 +4965,7 @@ const courses = [
 },
 
 {
-  id: 37,
+  id: 40,
   title: "Canva AI",
   tech: "ai-tools",
   slug: "canva-ai",
@@ -5015,7 +5015,7 @@ const courses = [
 
 // ================= RESEARCH / SEARCH =================
 {
-  id: 32,
+  id: 41,
   title: "Perplexity AI",
   tech: "ai-tools",
   slug: "perplexity-ai",
@@ -5063,7 +5063,7 @@ const courses = [
 
 // ================= VIDEO CREATION =================
 {
-  id: 36,
+  id: 42,
   title: "Runway ML",
   tech: "ai-tools",
   slug: "runway-ml",
@@ -5112,7 +5112,7 @@ const courses = [
 
 // ================= PRODUCTIVITY =================
 {
-  id: 38,
+  id: 43,
   title: "Notion AI",
   tech: "ai-tools",
   slug: "notion-ai",
@@ -5160,7 +5160,7 @@ const courses = [
 
 // ================= MUSIC =================
 {
-  id: 39,
+  id: 44,
   title: "Suno AI",
   tech: "ai-tools",
   slug: "suno-ai",
@@ -5207,7 +5207,7 @@ const courses = [
 
 // ================= VOICE / AUDIO =================
 {
-  id: 40,
+  id: 45,
   title: "ElevenLabs",
   tech: "ai-tools",
   slug: "elevenlabs",
@@ -5256,7 +5256,7 @@ const courses = [
 
 // ================= AWS =================
 {
-  id: 42,
+  id: 46,
   title: "Amazon Web Services (AWS)",
   tech: "cloud-computing",
   slug: "aws",
@@ -5384,7 +5384,7 @@ const courses = [
 
 // ================= MICROSOFT AZURE =================
 {
-  id: 43,
+  id: 47,
   title: "Microsoft Azure",
   tech: "cloud-computing",
   slug: "microsoft-azure",
@@ -5499,7 +5499,7 @@ const courses = [
 
 // ================= GOOGLE CLOUD PLATFORM =================
 {
-  id: 44,
+  id: 48,
   title: "Google Cloud Platform (GCP)",
   tech: "cloud-computing",
   slug: "google-cloud-platform",
@@ -5611,7 +5611,7 @@ const courses = [
 
 // ================= DEVOPS =================
 {
-  id: 45,
+  id: 49,
   title: "DevOps Engineering",
   tech: "cloud-computing",
   slug: "devops-engineering",
@@ -5716,7 +5716,7 @@ const courses = [
 },
 // ================= IBM CLOUD =================
 {
-  id: 46,
+  id: 50,
   title: "IBM Cloud",
   tech: "cloud-computing",
   slug: "ibm-cloud",
@@ -5803,7 +5803,7 @@ const courses = [
 
 // ================= ORACLE CLOUD =================
 {
-  id: 47,
+  id: 51,
   title: "Oracle Cloud Infrastructure (OCI)",
   tech: "cloud-computing",
   slug: "oracle-cloud",
@@ -5888,7 +5888,7 @@ const courses = [
 
 // ================= ALIBABA CLOUD =================
 {
-  id: 48,
+  id: 52,
   title: "Alibaba Cloud",
   tech: "cloud-computing",
   slug: "alibaba-cloud",
@@ -5969,7 +5969,7 @@ const courses = [
 
 // ================= SALESFORCE CLOUD =================
 {
-  id: 49,
+  id: 53,
   title: "Salesforce Cloud",
   tech: "cloud-computing",
   slug: "salesforce-cloud",
@@ -6049,7 +6049,7 @@ const courses = [
 
 // ================= TENCENT CLOUD =================
 {
-  id: 50,
+  id: 54,
   title: "Tencent Cloud",
   tech: "cloud-computing",
   slug: "tencent-cloud",

@@ -17,7 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const CourseDetailsPage = () => {
   const { slug } = useParams();
-  const BASE_URL = import.meta.env.VITE_BASE_URL;
+  const VITE_COURSE_URL = import.meta.env.VITE_COURSE_URL;
   const [openIndex, setOpenIndex] = useState(null);
   const [activeTab, setActiveTab] = useState("curriculum");
   const [showModal, setShowModal] = useState(false);
@@ -38,7 +38,6 @@ const CourseDetailsPage = () => {
 
   const [sidebarErrors, setSidebarErrors] = useState({});
   const [modalErrors, setModalErrors] = useState({});
-
   const course = courses.find((item) => item.slug === slug);
 
   const inputClass =
@@ -183,15 +182,14 @@ const CourseDetailsPage = () => {
     setSidebarLoading(true);
 
     const payload = {
-      Name: sidebarFormData.fullName,
-      Email: sidebarFormData.email,
-      ContactNo: sidebarFormData.contact,
-      Subject: `Inquiry for ${course.title}`,
-      Message: `Student wants free demo for ${course.title}`,
-    };
+  fullname: sidebarFormData.fullName,
+  email: sidebarFormData.email,
+  mobileNo: sidebarFormData.contact,
+  course: course.id, 
+};
 
     try {
-      const response = await fetch(`${BASE_URL}/contact-inquiry-create/`, {
+      const response = await fetch(`${VITE_COURSE_URL}/course-demo/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -233,16 +231,15 @@ const CourseDetailsPage = () => {
 
     setModalLoading(true);
 
-    const payload = {
-      Name: modalFormData.fullName,
-      Email: modalFormData.email,
-      ContactNo: modalFormData.contact,
-      Subject: `Curriculum Download - ${course.title}`,
-      Message: `Student requested curriculum for ${course.title}`,
-    };
+      const payload = {
+  fullname: modalFormData.fullName,
+  email: modalFormData.email,
+  mobileNo: modalFormData.contact,
+  course: course.id, 
+      };
 
     try {
-      const response = await fetch(`${BASE_URL}/contact-inquiry-create/`, {
+        const response = await fetch(`${VITE_COURSE_URL}/course-demo/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
