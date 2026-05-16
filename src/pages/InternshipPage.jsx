@@ -14,7 +14,7 @@ import PageHeader from "../components/PageHeader";
 
 const InternshipPage = () => {
   return (
-    <section className="bg-gray-50 dark:bg-gray-950 py-12 md:py-20 overflow-hidden transition-colors duration-300">
+    <section className="bg-gray-50 dark:bg-gray-950 py-12 md:py-26 overflow-hidden transition-colors duration-300">
       
       {/* ================= PAGE HEADER ================= */}
       <PageHeader title="Internship" />
