@@ -10,6 +10,7 @@ export const caseStudies = [
     id: 1,
     slug: "movie-recommendation",
     title: "Movie Recommendation System Project",
+    liveUrl:'#',
     category: "Machine Learning",
     img: img1,
     desc: "Improve ML algorithms using training, validation & testing.",

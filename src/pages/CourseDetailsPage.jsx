@@ -17,7 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const CourseDetailsPage = () => {
   const { slug } = useParams();
-  const VITE_COURSE_URL = import.meta.env.VITE_COURSE_URL;
+  const VITE_BASE_URL = import.meta.env.VITE_BASE_URL;
   const [openIndex, setOpenIndex] = useState(null);
   const [activeTab, setActiveTab] = useState("curriculum");
   const [showModal, setShowModal] = useState(false);
@@ -180,16 +180,15 @@ const CourseDetailsPage = () => {
     if (Object.keys(errors).length > 0) return;
 
     setSidebarLoading(true);
-
     const payload = {
-  fullname: sidebarFormData.fullName,
-  email: sidebarFormData.email,
-  mobileNo: sidebarFormData.contact,
-  course: course.id, 
-};
+      fullname: sidebarFormData.fullName,
+      email: sidebarFormData.email,
+      mobileNo: sidebarFormData.contact,
+      course: course.id,
+    };
 
     try {
-      const response = await fetch(`${VITE_COURSE_URL}/course-demo/`, {
+      const response = await fetch(`${VITE_BASE_URL}/course-demo/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -231,15 +230,16 @@ const CourseDetailsPage = () => {
 
     setModalLoading(true);
 
-      const payload = {
-  fullname: modalFormData.fullName,
-  email: modalFormData.email,
-  mobileNo: modalFormData.contact,
-  course: course.id, 
-      };
+    const payload = {
+      fullname: modalFormData.fullName,
+      email: modalFormData.email,
+      mobileNo: modalFormData.contact,
+      course: course.id,
+      is_curriculum_downloaded: true,
+    };
 
     try {
-        const response = await fetch(`${VITE_COURSE_URL}/course-demo/`, {
+      const response = await fetch(`${VITE_BASE_URL}/curriculum/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -250,7 +250,7 @@ const CourseDetailsPage = () => {
       const data = await response.json();
 
       if (response.ok) {
-        toast.success("Inquiry sent successfully");
+        toast.success("Pdf download successfully");
 
         // DOWNLOAD PDF
         downloadCurriculumPDF();
@@ -360,9 +360,7 @@ const CourseDetailsPage = () => {
                         {/* HEADER */}
                         <button
                           onClick={() =>
-                            setOpenIndex(
-                              openIndex === index ? null : index
-                            )
+                            setOpenIndex(openIndex === index ? null : index)
                           }
                           className="w-full flex items-center justify-between px-5 py-4 bg-white dark:bg-gray-800"
                         >
@@ -488,9 +486,7 @@ const CourseDetailsPage = () => {
           >
             {/* TOP */}
             <div className="bg-orange-500 p-6 text-white relative">
-              <h2 className="text-2xl font-bold">
-                Download Curriculum
-              </h2>
+              <h2 className="text-2xl font-bold">Download Curriculum</h2>
 
               <button
                 onClick={() => setShowModal(false)}
@@ -566,9 +562,7 @@ const CourseDetailsPage = () => {
                   disabled={modalLoading}
                   className="w-full bg-orange-500 hover:bg-black transition text-white py-3 rounded-xl font-semibold"
                 >
-                  {modalLoading
-                    ? "Generating PDF..."
-                    : "Download Now"}
+                  {modalLoading ? "Generating PDF..." : "Download Now"}
                 </button>
               </div>
             </form>

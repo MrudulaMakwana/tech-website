@@ -219,7 +219,9 @@ function getLevel(score) {
 };
 
 function getCareerRoadmap(field) {
-    if (field === "Frontend Development") {
+    const cleanField = field?.trim().toLowerCase();
+
+    if (cleanField.includes("frontend")) {
         return `
 🧭 Frontend Developer Roadmap
 
@@ -237,7 +239,7 @@ Frontend Developer
 `;
     }
 
-    if (field === "Backend Development") {
+    if (cleanField.includes("backend")) {
         return `
 🧭 Backend Developer Roadmap
 
@@ -254,7 +256,7 @@ Backend Developer
 `;
     }
 
-    if (field === "Mobile Development") {
+    if (cleanField.includes("mobile")) {
         return `
 🧭 Mobile App Developer Roadmap
 
@@ -270,7 +272,7 @@ Mobile Developer
 `;
     }
 
-    if (field === "AI / ML") {
+    if (cleanField.includes("ai") || cleanField.includes("ml")) {
         return `
 🧭 AI / ML Roadmap
 
@@ -286,7 +288,7 @@ AI Engineer
 `;
     }
 
-    if (field === "Database") {
+    if (cleanField.includes("database")) {
         return `
 🧭 Database Developer Roadmap
 
@@ -334,12 +336,6 @@ app.post("/api/chat", async (req, res) => {
             score,
             answer,
         } = req.body;
-        const courseReply = getCourseResponse(message);
-
-        if (courseReply) {
-            return res.json(courseReply);
-        }
-
 
         const lowerMessage = message.toLowerCase();
 
@@ -425,10 +421,19 @@ app.post("/api/chat", async (req, res) => {
 
         // CAREER PATH
         if (feature === "career") {
+            const roadmap = getCareerRoadmap(field);
+
             return res.json({
-                reply: getCareerRoadmap(field),
+                reply: roadmap,
+                field: field,
             });
         }
+        const courseReply = getCourseResponse(message);
+
+        if (courseReply) {
+            return res.json(courseReply);
+        }
+
         // Check fallback responses
         const fallbackReply = getFallbackResponse(message);
 

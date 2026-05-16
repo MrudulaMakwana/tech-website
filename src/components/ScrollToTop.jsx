@@ -263,7 +263,6 @@ Join our internship programs and gain real-world experience!
       "Database",
     ];
 
-
     // SELECT QUIZ FIELD
     if (fields.includes(option)) {
       setQuizField(option);
@@ -392,34 +391,48 @@ ${data.roadmap}
         <>
           {/* FLOATING BUTTONS */}
 
+          {/* FLOATING BUTTONS */}
           <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-            {/* CHATBOT */}
-            <button
-              onClick={() => setChatOpen(true)}
-              className="w-10 h-10 rounded-full bg-black dark:bg-white text-orange-500 flex items-center justify-center shadow-2xl hover:scale-110 transition duration-300"
-            >
-              <img
-                src={chatbot}
-                alt="chatbot"
-                className="w-6 h-6 object-contain"
-              />
-            </button>
+            {/* CHATBOT + TEXT (LEFT SIDE MESSAGE) */}
+            <div className="flex flex-col items-end gap-3">
+              {/* CHATBOT + TEXT (ONLY THIS PAIR) */}
+              <div className="flex items-center gap-2">
+                {/* HELP TEXT (ONLY FOR CHATBOT) */}
+                {!chatOpen && (
+                  <div className="bg-black text-white text-xs px-3 py-1 rounded-full shadow-lg animate-pulse whitespace-nowrap">
+                    How can I help you?
+                  </div>
+                )}
 
-            {/* WHATSAPP */}
-            <button
-              onClick={openWhatsApp}
-              className="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center shadow-2xl hover:bg-green-600 hover:scale-110 transition duration-300"
-            >
-              <FaWhatsapp size={24} />
-            </button>
+                {/* CHATBOT BUTTON */}
+                <button
+                  onClick={() => setChatOpen(true)}
+                  className="w-10 h-10 rounded-full bg-black dark:bg-white text-orange-500 flex items-center justify-center shadow-2xl hover:scale-110 transition duration-300"
+                >
+                  <img
+                    src={chatbot}
+                    alt="chatbot"
+                    className="w-6 h-6 object-contain"
+                  />
+                </button>
+              </div>
 
-            {/* SCROLL TOP */}
-            <button
-              onClick={scrollToTop}
-              className="w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center shadow-2xl hover:bg-black transition duration-300"
-            >
-              <FaChevronUp />
-            </button>
+              {/* WHATSAPP */}
+              <button
+                onClick={openWhatsApp}
+                className="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center shadow-2xl hover:bg-green-600 hover:scale-110 transition duration-300"
+              >
+                <FaWhatsapp size={24} />
+              </button>
+
+              {/* SCROLL TOP */}
+              <button
+                onClick={scrollToTop}
+                className="w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center shadow-2xl hover:bg-black transition duration-300"
+              >
+                <FaChevronUp />
+              </button>
+            </div>
           </div>
 
           {/* CHAT WINDOW */}
@@ -455,7 +468,7 @@ ${data.roadmap}
 
               {/* MESSAGES */}
 
-              <div className="flex-1 overflow-y-auto chat-scroll px-4 py-5 bg-gray-100 dark:bg-gray-800 space-y-4">
+              <div className="flex-1 overflow-y-auto scrollbar-hide px-4 py-5 bg-gray-100 dark:bg-gray-800 space-y-4">
                 {messages.map((msg, index) => (
                   <div key={index} className="space-y-2">
                     {/* MESSAGE */}
