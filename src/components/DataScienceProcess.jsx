@@ -56,7 +56,7 @@ const steps = [
 
 export default function DataScienceProcess() {
   return (
-    <div className="w-full min-h-screen bg-gray-50 dark:bg-gray-900 py-16 px-4 transition-colors duration-300">
+    <div className="w-full bg-gray-50 dark:bg-gray-900 py-10 md:py-16 px-4 transition-colors duration-300">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">

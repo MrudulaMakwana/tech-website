@@ -6,7 +6,7 @@ const CTA = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-12 md:py-20 bg-gray-100 dark:bg-gray-900 overflow-hidden transition-colors duration-300">
+    <section className="py-10 md:py-14 lg:py-16 bg-gray-100 dark:bg-gray-900 overflow-hidden transition-colors duration-300">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-10">
 

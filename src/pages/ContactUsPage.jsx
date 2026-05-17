@@ -64,8 +64,6 @@ const ContactUsPage = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen pt-20 sm:pt-24 md:pt-28 overflow-hidden dark:bg-gray-900">
-      {/* TOAST CONTAINER */}
-
       {/* HEADER */}
       <PageHeader title="Contact Us" />
 

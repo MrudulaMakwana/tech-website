@@ -9,7 +9,7 @@ const Team = ({ showHeader = true, limit }) => {
   const members = limit ? teamData.slice(0, limit) : teamData;
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-white dark:bg-gray-900 overflow-hidden transition-all duration-300">
+    <section className="py-10 md:py-14 lg:py-16 bg-white dark:bg-gray-900 overflow-hidden transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* HEADER */}
         {showHeader && (

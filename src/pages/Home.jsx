@@ -26,7 +26,7 @@ const Home = () => {
     <>
       <Hero />
       <AboutUs />
-      <section className="bg-gray-100 dark:bg-gray-900 py-10 md:py-20">
+      <section className="bg-gray-100 dark:bg-gray-900 py-10 md:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           {/* Heading */}
           <div className="flex items-center justify-center gap-2">
@@ -50,7 +50,7 @@ const Home = () => {
         w-9 h-9 md:w-12 md:h-12 rounded-full flex justify-center items-center 
         bg-orange-500 text-white shadow-lg transition z-10
         hover:bg-gray-200 hover:text-orange-500
-        dark:bg-gray-800 dark:text-white dark:hover:bg-orange-500 dark:hover:text-white"
+        dark:bg-orange-500 dark:text-white dark:hover:bg-orange-500 dark:hover:text-white"
             >
               <MdOutlineKeyboardArrowLeft size={20} className="md:text-2xl" />
             </button>
@@ -59,7 +59,7 @@ const Home = () => {
         w-9 h-9 md:w-12 md:h-12 rounded-full flex justify-center items-center 
         bg-orange-500 text-white shadow-lg transition z-10
         hover:bg-gray-200 hover:text-orange-500
-        dark:bg-gray-800 dark:text-white dark:hover:bg-orange-500 dark:hover:text-white"
+        dark:bg-orange-500 dark:text-white dark:hover:bg-orange-500 dark:hover:text-white"
             >
               <MdOutlineKeyboardArrowRight size={20} className="md:text-2xl" />
             </button>

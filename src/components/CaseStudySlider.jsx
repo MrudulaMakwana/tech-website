@@ -45,8 +45,7 @@ const CaseStudySlider = () => {
         >
           {/* SLIDE 1 */}
           <SwiperSlide>
-            <div className="flex flex-col md:flex-row items-center justify-between min-h-[60vh] md:min-h-[70vh] px-4 md:px-16 py-10 gap-8">
-
+           <div className="flex flex-col md:flex-row items-center justify-between px-4 md:px-16 py-6 md:py-10 gap-6 md:gap-8">
               {/* TEXT */}
               <div className="w-full md:w-1/2 space-y-4 text-center md:text-left">
                 <h5 className="text-orange-500 font-semibold text-sm md:text-base">
@@ -86,7 +85,7 @@ const CaseStudySlider = () => {
 
           {/* SLIDE 2 */}
           <SwiperSlide>
-            <div className="flex flex-col md:flex-row items-center justify-between min-h-[60vh] md:min-h-[70vh] px-4 md:px-16 py-10 gap-8">
+           <div className="flex flex-col md:flex-row items-center justify-between px-4 md:px-16 py-6 md:py-10 gap-6 md:gap-8">
 
               {/* TEXT */}
               <div className="w-full md:w-1/2 space-y-4 text-center md:text-left">

@@ -39,7 +39,7 @@ const Hero = () => {
   const nextRef = useRef(null);
 
   return (
-    <section className="w-full min-h-screen mt-10 pt-20 overflow-hidden bg-gray-100 text-black dark:bg-gray-900 dark:text-white">
+   <section className="w-full min-h-[85vh] md:min-h-screen pt-10 md:pt-16 overflow-hidden bg-gray-100 text-black dark:bg-gray-900 dark:text-white">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="relative">
           {/* PREV BUTTON */}
@@ -107,7 +107,7 @@ const Hero = () => {
             >
               {heroData.map((item, index) => (
                 <SwiperSlide key={index}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center min-h-[70vh] py-10">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center py-8 md:py-10">
                     {/* LEFT CONTENT */}
                     <motion.div
                       initial={{ opacity: 0, x: -30 }}

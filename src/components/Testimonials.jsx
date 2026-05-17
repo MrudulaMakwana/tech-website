@@ -10,8 +10,8 @@ import reviewData from "../data/reviewData";
 
 const Testimonials = () => {
   return (
-    <section className="py-20 bg-gray-100 dark:bg-gray-900 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-6">
+   <section className="py-10 md:py-16 bg-gray-100 dark:bg-gray-900 transition-all duration-300">
+    <div className="max-w-7xl mx-auto px-6">
         {/* HEADER */}
         <div className="text-center max-w-2xl mx-auto">
           <div className="flex justify-center items-center gap-2">

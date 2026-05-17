@@ -7,7 +7,6 @@ import {
   FaPaperPlane,
   FaArrowRight,
 } from "react-icons/fa";
-
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { SiProbot } from "react-icons/si";
 import { BsRobot } from "react-icons/bs";
@@ -21,7 +20,7 @@ const ScrollToTop = () => {
   const [message, setMessage] = useState("");
   const [showActions] = useState(true);
   const [loading, setLoading] = useState(false);
-
+  const [showHelpText, setShowHelpText] = useState(true);
   // QUIZ STATES
   const [quizField, setQuizField] = useState("");
   const [quizQuestionIndex, setQuizQuestionIndex] = useState(0);
@@ -402,19 +401,21 @@ ${data.roadmap}
           <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col gap-3">
             {/* CHATBOT + TEXT */}
             <div className="flex flex-col items-end gap-3">
-              {/* CHATBOT + TEXT */}
               <div className="flex items-center gap-2">
                 {/* HELP TEXT */}
-                {!chatOpen && (
+                {!chatOpen && showHelpText && (
                   <div className="bg-black text-white text-[10px] sm:text-xs px-2 sm:px-3 py-1 rounded-full shadow-lg animate-pulse whitespace-nowrap max-w-[140px] sm:max-w-none overflow-hidden text-ellipsis">
-  How can I help you?
-</div>
+                    How can I help you?
+                  </div>
                 )}
 
                 {/* CHATBOT BUTTON */}
                 <button
-                  onClick={() => setChatOpen(true)}
-                  className="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-black dark:bg-white text-orange-500 flex items-center justify-center shadow-2xl hover:scale-110 transition duration-300"
+                  onClick={() => {
+                    setChatOpen(true);
+                    setShowHelpText(false);
+                  }}
+                  className="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-black dark:bg-white text-orange-500 flex items-center justify-center shadow-2xl hover:scale-110 transition duration-300 cursor-pointer"
                 >
                   <img
                     src={chatbot}
@@ -427,7 +428,7 @@ ${data.roadmap}
               {/* WHATSAPP */}
               <button
                 onClick={openWhatsApp}
-                className="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-green-500 text-white flex items-center justify-center shadow-2xl hover:bg-green-600 hover:scale-110 transition duration-300"
+                className="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-green-500 text-white flex items-center justify-center shadow-2xl hover:bg-green-600 hover:scale-110 transition duration-300 cursor-pointer"
               >
                 <FaWhatsapp size={24} />
               </button>
@@ -435,7 +436,7 @@ ${data.roadmap}
               {/* SCROLL TOP */}
               <button
                 onClick={scrollToTop}
-                className="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-orange-500 text-white flex items-center justify-center shadow-2xl hover:bg-black transition duration-300"
+                className="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-orange-500 text-white flex items-center justify-center shadow-2xl hover:bg-black transition duration-300 cursor-pointer"
               >
                 <FaChevronUp />
               </button>
@@ -444,7 +445,7 @@ ${data.roadmap}
 
           {/* CHAT WINDOW */}
           {chatOpen && (
-            <div className="fixed inset-0 sm:inset-auto sm:top-24 sm:right-4 md:right-6 z-50 w-full h-full sm:w-[340px] md:w-[360px] lg:w-[380px] sm:h-[520px] md:h-[550px] rounded-none sm:rounded-3xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.2)] bg-white dark:bg-gray-900 border border-orange-100 dark:border-gray-700 flex flex-col">
+            <div className="fixed inset-0 sm:inset-auto sm:top-24 sm:right-4 md:right-6 sm:bottom-6 lg:bottom-8 z-50 w-full h-full sm:w-[340px] md:w-[360px] lg:w-[380px] sm:h-[520px] md:h-[600px] lg:h-[520px] rounded-none sm:rounded-3xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.25)] bg-white dark:bg-gray-900 border border-orange-100 dark:border-gray-700 flex flex-col">
               {/* HEADER */}
               <div className="bg-gradient-to-r from-orange-500 to-amber-500 p-4 text-white flex items-center justify-between">
                 <div className="flex items-center gap-3">
@@ -467,7 +468,7 @@ ${data.roadmap}
                   </div>
                 </div>
 
-                <button onClick={() => setChatOpen(false)}>
+                <button onClick={() => setChatOpen(false)} className='cursor-pointer'>
                   <FaTimes size={18} />
                 </button>
               </div>
@@ -479,9 +480,7 @@ ${data.roadmap}
                     {/* MESSAGE */}
                     <div
                       className={`flex ${
-                        msg.sender === "user"
-                          ? "justify-end"
-                          : "justify-start"
+                        msg.sender === "user" ? "justify-end" : "justify-start"
                       }`}
                     >
                       <div
@@ -531,7 +530,7 @@ ${data.roadmap}
                     {msg.type === "courses" && (
                       <button
                         onClick={() => navigate("/courses")}
-                        className="w-full mt-2 px-3 py-3 sm:py-2 rounded-lg bg-gradient-to-r from-orange-500 to-amber-500 text-white text-[14px] sm:text-sm font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
+                        className="w-full mt-2 px-3 py-3 sm:py-2 rounded-lg bg-gradient-to-r from-orange-500 to-amber-500 text-white text-[14px] sm:text-sm font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
                       >
                         View All Courses
                         <FaArrowRight size={12} />
@@ -542,7 +541,7 @@ ${data.roadmap}
                     {msg.type === "internship" && (
                       <button
                         onClick={() => navigate("/internship")}
-                        className="w-full mt-2 px-3 py-3 sm:py-2 rounded-lg bg-gradient-to-r from-orange-500 to-amber-500 text-white text-[14px] sm:text-sm font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
+                        className="w-full mt-2 px-3 py-3 sm:py-2 rounded-lg bg-gradient-to-r from-orange-500 to-amber-500 text-white text-[14px] sm:text-sm font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
                       >
                         View All Programs
                         <FaArrowRight size={12} />
@@ -610,7 +609,7 @@ ${data.roadmap}
                   <button
                     onClick={sendMessage}
                     disabled={loading}
-                    className="w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white flex items-center justify-center disabled:opacity-50"
+                    className="w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white flex items-center justify-center disabled:opacity-50 cursor-pointer"
                   >
                     <FaPaperPlane size={14} />
                   </button>
