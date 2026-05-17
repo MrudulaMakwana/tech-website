@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 import { FaSearch } from "react-icons/fa";
 import { FaChevronDown } from "react-icons/fa6";
-import logo from "./../assets/images/logo.webp";
-import logoDark from "./../assets/images/logo_dark.webp";
+import logo from "/logo.webp";
+import logoDark from "/logo_dark.webp";
 import { Link, useNavigate } from "react-router-dom";
 import { ThemeContext } from "../context/ThemeContext";
 import { MdSunny } from "react-icons/md";
@@ -85,24 +85,24 @@ const Navbar = () => {
           <div className="h-16 w-[120px] flex items-center justify-center">
             {/* DARK LOGO */}
             <img
-              src={logoDark}
+              src="/logo_dark.webp"
               alt="Infinity3 Technology Logo"
               width="120"
               height="64"
-              loading="eager"
               fetchPriority="high"
+              loading="eager"
               decoding="async"
               className="w-28 h-auto hidden dark:block object-contain"
             />
 
             {/* LIGHT LOGO */}
             <img
-              src={logo}
+              src="/logo.webp"
               alt="Infinity3 Technology Logo"
               width="120"
               height="64"
-              loading="eager"
               fetchPriority="high"
+              loading="eager"
               decoding="async"
               className="w-28 h-auto block dark:hidden object-contain"
             />
