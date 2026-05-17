@@ -5,7 +5,7 @@ import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import heroImg from "../assets/images/hero.png";
+import heroImg from "../assets/images/hero.webp";
 import { FaPlay } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
@@ -41,7 +41,6 @@ const Hero = () => {
   return (
     <section className="w-full overflow-hidden bg-gray-100 text-black dark:bg-gray-900 dark:text-white pt-24 md:pt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        
         {/* PREV BUTTON */}
         <button
           ref={prevRef}
@@ -56,7 +55,7 @@ const Hero = () => {
             font-bold
             hover:text-orange-600
             transition-all
-            duration-300
+            duration-300 cursor-pointer
           "
         >
           &#8249;
@@ -76,7 +75,7 @@ const Hero = () => {
             font-bold
             hover:text-orange-600
             transition-all
-            duration-300
+            duration-300 cursor-pointer
           "
         >
           &#8250;
@@ -102,7 +101,6 @@ const Hero = () => {
           {heroData.map((item, index) => (
             <SwiperSlide key={index}>
               <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 py-10 md:py-20">
-
                 {/* LEFT CONTENT */}
                 <motion.div
                   initial={{ opacity: 0, x: -30 }}
@@ -119,7 +117,6 @@ const Hero = () => {
                   </p>
 
                   <div className="mt-8 flex flex-col sm:flex-row items-center md:items-start gap-4">
-                    
                     {/* ABOUT BUTTON */}
                     <button
                       onClick={() => navigate("/about")}
@@ -136,6 +133,7 @@ const Hero = () => {
                         duration-300
                         w-full
                         sm:w-auto
+                        cursor-pointer
                       "
                     >
                       About Us
@@ -143,16 +141,15 @@ const Hero = () => {
 
                     {/* WATCH VIDEO */}
                     <button
-                      className="flex items-center gap-3 group"
+                      className="flex items-center gap-3 group cursor-pointer"
                       onClick={() =>
                         window.open(
                           "https://youtube.com/@infinity3technology",
-                          "_blank"
+                          "_blank",
                         )
                       }
                     >
                       <div className="relative w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-gray-700 shadow-md group-hover:bg-orange-500 transition">
-                        
                         <span className="absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-20 animate-ping"></span>
 
                         <FaPlay className="text-orange-500 group-hover:text-white relative z-10" />
@@ -174,14 +171,12 @@ const Hero = () => {
                 >
                   <motion.img
                     src={item.image}
-                    alt="hero"
-                    className="
-                      w-full
-                      max-w-[280px]
-                      sm:max-w-[380px]
-                      md:max-w-[500px]
-                      object-contain
-                    "
+                    alt="Infinity3 Technology Hero"
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    draggable="false"
+                    className=" w-full max-w-[280px] sm:max-w-[380px] md:max-w-[500px] object-contain select-none"
                     animate={{ y: [0, -15, 0] }}
                     transition={{
                       repeat: Infinity,

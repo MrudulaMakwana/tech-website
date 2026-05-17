@@ -12,7 +12,7 @@ import { SiProbot } from "react-icons/si";
 import { BsRobot } from "react-icons/bs";
 import coursesData from "../data/coursesData";
 import internshipData from "../data/internshipData";
-import chatbot from "./../assets/images/chatbot.png";
+import chatbot from "./../assets/images/chatbot.webp";
 
 const ScrollToTop = () => {
   const [visible, setVisible] = useState(true);

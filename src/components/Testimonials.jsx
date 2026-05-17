@@ -3,21 +3,26 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import star from "./../assets/images/star-icon.png";
+import star from "./../assets/images/star-icon.webp";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import reviewData from "../data/reviewData";
 
 const Testimonials = () => {
   return (
-   <section className="py-10 md:py-16 bg-gray-100 dark:bg-gray-900 transition-all duration-300">
-    <div className="max-w-7xl mx-auto px-6">
+    <section className="py-10 md:py-16 bg-gray-100 dark:bg-gray-900 transition-all duration-300">
+      <div className="max-w-7xl mx-auto px-6">
         {/* HEADER */}
         <div className="text-center max-w-2xl mx-auto">
           <div className="flex justify-center items-center gap-2">
             <img
               src={star}
               alt="star"
+              width="24"
+              height="24"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               className="w-6 animate-[float_4s_ease-in-out_infinite]"
             />
             <p className="text-orange-500 font-semibold uppercase text-sm">
@@ -42,14 +47,14 @@ const Testimonials = () => {
           <div className="relative mt-12">
             <button
               className="prev-btn absolute -top-15 left-0  bg-orange-500 dark:bg-orange-500 
-              text-white dark:text-white shadow-md w-10 h-10 rounded-full flex justify-center items-center  hover:bg-white hover:text-orange-500 transition"
+              text-white dark:text-white shadow-md w-10 h-10 rounded-full flex justify-center items-center  transition cursor-pointer"
             >
               <MdOutlineKeyboardArrowLeft size={23} />
             </button>
 
             <button
               className="next-btn absolute -top-15 right-0 bg-orange-500 dark:bg-orange-500 
-              text-white dark:text-white shadow-md w-10 h-10 rounded-full flex justify-center items-center hover:bg-white hover:text-orange-500 transition"
+              text-white dark:text-white shadow-md w-10 h-10 rounded-full flex justify-center items-center transition cursor-pointer"
             >
               <MdOutlineKeyboardArrowRight size={23} />
             </button>
@@ -60,6 +65,8 @@ const Testimonials = () => {
             spaceBetween={30}
             slidesPerView={1}
             loop={true}
+            speed={800}
+            watchSlidesProgress={true}
             autoplay={{
               delay: 2500,
               disableOnInteraction: false,
@@ -87,6 +94,10 @@ const Testimonials = () => {
                     <img
                       src={item.image}
                       alt={item.name}
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                      decoding="async"
                       className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-orange-400"
                     />
 

@@ -1,8 +1,8 @@
 import React from "react";
 import { FaWhatsapp, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import logo from "./../assets/images/logo.png";
-import logoDark from "./../assets/images/logo_dark.png";
+import logo from "./../assets/images/logo.webp";
+import logoDark from "./../assets/images/logo_dark.webp";
 import { LuPhoneCall } from "react-icons/lu";
 import { SlLocationPin } from "react-icons/sl";
 import { MdOutlineMailOutline } from "react-icons/md";
@@ -29,15 +29,22 @@ const Footer = () => {
         <div>
           <Link to="/" className="hover:text-orange-500 flex items-center">
             <div className="h-16 w-[120px] flex items-center justify-center">
+              {/* DARK LOGO */}
               <img
                 src={logoDark}
-                alt="LOGO"
-                className="w-26 h-auto  hidden dark:block"
+                alt="Infinity3 Technology Logo"
+                loading="lazy"
+                decoding="async"
+                className="hidden dark:block w-full h-auto object-contain"
               />
+
+              {/* LIGHT LOGO */}
               <img
                 src={logo}
-                alt="LOGO"
-                className="max-h-full max-w-full block dark:hidden"
+                alt="Infinity3 Technology Logo"
+                loading="lazy"
+                decoding="async"
+                className="block dark:hidden w-full h-auto object-contain"
               />
             </div>
           </Link>

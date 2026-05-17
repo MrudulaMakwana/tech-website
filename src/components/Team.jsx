@@ -1,9 +1,9 @@
 import React from "react";
-import star from "./../assets/images/star-icon.png";
+import star from "./../assets/images/star-icon.webp";
 import { FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { teamData } from "../data/teamData";
-import bgImage from "./../assets/images/bg1.png";
+import bgImage from "./../assets/images/bg1.webp";
 
 const Team = ({ showHeader = true, limit }) => {
   const members = limit ? teamData.slice(0, limit) : teamData;
@@ -16,9 +16,15 @@ const Team = ({ showHeader = true, limit }) => {
           <>
             {/* SMALL TITLE */}
             <div className="flex items-center justify-center gap-2">
+              {/* STAR ICON */}
               <img
                 src={star}
                 alt="star"
+                width="24"
+                height="24"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 className="w-4 sm:w-5 md:w-6 animate-[float_4s_ease-in-out_infinite]"
               />
 
@@ -58,7 +64,12 @@ const Team = ({ showHeader = true, limit }) => {
                 <img
                   src={member.img}
                   alt={member.name}
-                  className=" w-full h-full object-cover transition duration-500 group-hover:scale-105 "/>
+                  width="400"
+                  height="500"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                />
               </div>
 
               {/* CONTENT */}

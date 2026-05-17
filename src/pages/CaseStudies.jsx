@@ -11,29 +11,35 @@ const CaseStudies = () => {
 
   const VITE_BASE_URL = import.meta.env.VITE_BASE_URL;
   useEffect(() => {
+    const controller = new AbortController();
+
     const fetchProjects = async () => {
       try {
         setLoading(true);
 
-        const res = await fetch(
-          `${ VITE_BASE_URL}/portfolio-projects/`
-        );
+        const res = await fetch(`${VITE_BASE_URL}/portfolio-projects/`, {
+          signal: controller.signal,
+        });
 
         if (!res.ok) {
           throw new Error("Failed to fetch projects");
         }
 
         const data = await res.json();
-        
+
         setProjects(data.data || []);
       } catch (err) {
-        setError(err.message);
+        if (err.name !== "AbortError") {
+          setError(err.message);
+        }
       } finally {
         setLoading(false);
       }
     };
 
     fetchProjects();
+
+    return () => controller.abort();
   }, []);
 
   return (
@@ -49,11 +55,7 @@ const CaseStudies = () => {
         )}
 
         {/* ERROR STATE */}
-        {error && (
-          <div className="text-center text-red-500">
-            {error}
-          </div>
-        )}
+        {error && <div className="text-center text-red-500">{error}</div>}
 
         {/* GRID */}
         {!loading && !error && (
@@ -68,14 +70,16 @@ const CaseStudies = () => {
                   <img
                     src={item.thumbnail}
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+                    loading="lazy"
+                    decoding="async"
+                    width="500"
+                    height="350"
+                    className="w-full h-full object-cover group-hover:scale-110 transition duration-700 will-change-transform"
                   />
 
                   {/* MODERN OVERLAY */}
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-end p-5">
-                    
                     <div className="w-full flex items-center justify-between backdrop-blur-md bg-white/10 dark:bg-black/30 rounded-xl p-3">
-
                       {/* LEFT INFO */}
                       <div>
                         <p className="text-white text-sm opacity-80">
@@ -88,7 +92,6 @@ const CaseStudies = () => {
 
                       {/* RIGHT ACTIONS */}
                       <div className="flex gap-3">
-
                         {/* DETAILS PAGE (YOU CAN LINK LATER) */}
                         <Link
                           to={`/case-studies/${item.id}`}

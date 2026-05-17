@@ -19,7 +19,7 @@ import {
 } from "react-icons/md";
 import internshipData from "../data/internshipData";
 import InternshipCard from "../components/InternshipCard";
-import Star from "./../assets/images/star-icon.png";
+import Star from "./../assets/images/star-icon.webp";
 
 const Home = () => {
   return (
@@ -33,6 +33,10 @@ const Home = () => {
             <img
               src={Star}
               alt="Star Icon"
+              loading="lazy"
+              decoding="async"
+              width="20"
+              height="20"
               className="w-4 md:w-5 animate-[float_4s_ease-in-out_infinite]"
             />
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 dark:text-white text-center">
@@ -50,7 +54,7 @@ const Home = () => {
         w-9 h-9 md:w-12 md:h-12 rounded-full flex justify-center items-center 
         bg-orange-500 text-white shadow-lg transition z-10
         hover:bg-gray-200 hover:text-orange-500
-        dark:bg-orange-500 dark:text-white dark:hover:bg-orange-500 dark:hover:text-white"
+        dark:bg-orange-500 dark:text-white dark:hover:bg-orange-500 dark:hover:text-white cursor-pointer"
             >
               <MdOutlineKeyboardArrowLeft size={20} className="md:text-2xl" />
             </button>
@@ -59,7 +63,7 @@ const Home = () => {
         w-9 h-9 md:w-12 md:h-12 rounded-full flex justify-center items-center 
         bg-orange-500 text-white shadow-lg transition z-10
         hover:bg-gray-200 hover:text-orange-500
-        dark:bg-orange-500 dark:text-white dark:hover:bg-orange-500 dark:hover:text-white"
+        dark:bg-orange-500 dark:text-white dark:hover:bg-orange-500 dark:hover:text-white cursor-pointer"
             >
               <MdOutlineKeyboardArrowRight size={20} className="md:text-2xl" />
             </button>
@@ -72,6 +76,9 @@ const Home = () => {
                 slidesPerView={1}
                 centeredSlides={true}
                 loop={true}
+                watchSlidesProgress={true}
+                observer={true}
+                observeParents={true}
                 autoplay={{
                   delay: 2500,
                   disableOnInteraction: false,
