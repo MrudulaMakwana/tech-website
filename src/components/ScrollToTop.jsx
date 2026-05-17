@@ -445,36 +445,42 @@ ${data.roadmap}
 
           {/* CHAT WINDOW */}
           {chatOpen && (
-            <div className="fixed inset-0 sm:inset-auto sm:top-24 sm:right-4 md:right-6 sm:bottom-6 lg:bottom-8 z-50 w-full h-full sm:w-[340px] md:w-[360px] lg:w-[380px] sm:h-[520px] md:h-[600px] lg:h-[520px] rounded-none sm:rounded-3xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.25)] bg-white dark:bg-gray-900 border border-orange-100 dark:border-gray-700 flex flex-col">
+            <div
+              className="fixed inset-0 sm:inset-auto sm:bottom-5 sm:right-5 z-50 w-full h-full 
+sm:w-[320px] md:w-[340px] sm:h-[480px] md:h-[500px] max-h-[800px] rounded-none sm:rounded-2xl overflow-hidden shadow-2xl bg-white dark:bg-gray-900 border border-orange-100 dark:border-gray-700 flex flex-col"
+            >
               {/* HEADER */}
-              <div className="bg-gradient-to-r from-orange-500 to-amber-500 p-4 text-white flex items-center justify-between">
+              <div className="bg-gradient-to-r from-orange-500 to-amber-500 p-2.5 text-white flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-full bg-white flex items-center justify-center">
-                    <img
+                 <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+                  <img
                       src={chatbot}
                       alt="chatbot"
-                      className="w-6 h-6 object-contain"
+                     className="w-4 h-4 object-contain"
                     />
                   </div>
 
                   <div>
-                    <h2 className="font-semibold text-base sm:text-lg">
+                    <h2 className="text-sm font-semibold sm:text-lg">
                       Infinity3 Assistant
                     </h2>
 
-                    <p className="text-xs text-orange-100">
+                    <p className="text-[11px] text-orange-100">
                       AI Powered Chatbot
                     </p>
                   </div>
                 </div>
 
-                <button onClick={() => setChatOpen(false)} className='cursor-pointer'>
+                <button
+                  onClick={() => setChatOpen(false)}
+                  className="cursor-pointer"
+                >
                   <FaTimes size={18} />
                 </button>
               </div>
 
               {/* MESSAGES */}
-              <div className="flex-1 overflow-y-auto scrollbar-hide px-3 sm:px-4 py-4 sm:py-5 bg-gray-100 dark:bg-gray-800 space-y-4">
+              <div className="flex-1 overflow-y-auto scrollbar-hide px-2.5 py-3 bg-gray-100 dark:bg-gray-800 space-y-3">
                 {messages.map((msg, index) => (
                   <div key={index} className="space-y-2">
                     {/* MESSAGE */}
@@ -484,7 +490,7 @@ ${data.roadmap}
                       }`}
                     >
                       <div
-                        className={`max-w-[85%] sm:max-w-[80%] px-4 py-3 rounded-2xl text-[14px] sm:text-sm leading-relaxed shadow-sm whitespace-pre-wrap ${
+                        className={`max-w-[82%] px-3 py-2.5 rounded-2xl text-[12px] leading-relaxed shadow-sm whitespace-pre-wrap ${
                           msg.sender === "user"
                             ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-br-md"
                             : "bg-white dark:bg-gray-700 text-gray-800 dark:text-white rounded-bl-md"
@@ -583,7 +589,7 @@ ${data.roadmap}
                       <button
                         key={idx}
                         onClick={() => handleQuickAction(action)}
-                        className="text-left px-3 py-3 sm:py-2 rounded-lg bg-white dark:bg-gray-700 hover:bg-orange-100 dark:hover:bg-gray-600 border border-orange-200 dark:border-gray-600 text-[14px] sm:text-sm text-gray-800 dark:text-white transition-all duration-200 hover:translate-x-1 hover:shadow-md flex items-center justify-between cursor-pointer"
+                        className="text-left px-3 py-2 rounded-lg bg-white dark:bg-gray-700 hover:bg-orange-100 dark:hover:bg-gray-600 border border-orange-200 dark:border-gray-600 text-[12px] text-gray-800 dark:text-white transition-all duration-200 hover:translate-x-1 hover:shadow-md flex items-center justify-between cursor-pointer"
                       >
                         <span>{action}</span>
 
@@ -595,7 +601,7 @@ ${data.roadmap}
               </div>
 
               {/* INPUT */}
-              <div className="p-3 sm:p-4 border-t border-orange-100 dark:border-gray-700 bg-white dark:bg-gray-900">
+              <div className="p-2.5 border-t border-orange-100 dark:border-gray-700 bg-white dark:bg-gray-900">
                 <div className="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 rounded-2xl px-2 sm:px-3 py-2 border border-orange-100 dark:border-gray-700">
                   <input
                     type="text"
