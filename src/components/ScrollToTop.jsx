@@ -447,16 +447,16 @@ ${data.roadmap}
           {chatOpen && (
             <div
               className="fixed inset-0 sm:inset-auto sm:bottom-5 sm:right-5 z-50 w-full h-full 
-sm:w-[320px] md:w-[340px] sm:h-[480px] md:h-[500px] max-h-[800px] rounded-none sm:rounded-2xl overflow-hidden shadow-2xl bg-white dark:bg-gray-900 border border-orange-100 dark:border-gray-700 flex flex-col"
+sm:w-[320px] md:w-[340px] sm:h-[480px] md:max-h-full rounded-none sm:rounded-2xl overflow-hidden shadow-2xl bg-white dark:bg-gray-900 border border-orange-100 dark:border-gray-700 flex flex-col"
             >
               {/* HEADER */}
               <div className="bg-gradient-to-r from-orange-500 to-amber-500 p-2.5 text-white flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                 <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
-                  <img
+                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+                    <img
                       src={chatbot}
                       alt="chatbot"
-                     className="w-4 h-4 object-contain"
+                      className="w-4 h-4 object-contain"
                     />
                   </div>
 
