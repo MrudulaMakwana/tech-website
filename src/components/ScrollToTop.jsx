@@ -13,6 +13,9 @@ import { BsRobot } from "react-icons/bs";
 import coursesData from "../data/coursesData";
 import internshipData from "../data/internshipData";
 import chatbot from "./../assets/images/chatbot.webp";
+// import chatbotIcon from "./../assets/chatbot.mp4";
+import chatbotIcon from "./../assets/chatbot3.mp4";
+// import chatbotIcon from "./../assets/chatbot2.gif";
 
 const ScrollToTop = () => {
   const [visible, setVisible] = useState(true);
@@ -409,20 +412,30 @@ ${data.roadmap}
                   </div>
                 )}
 
-                {/* CHATBOT BUTTON */}
-                <button
+                 <button
                   onClick={() => {
                     setChatOpen(true);
                     setShowHelpText(false);
                   }}
-                  className="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-black dark:bg-white text-orange-500 flex items-center justify-center shadow-2xl hover:scale-110 transition duration-300 cursor-pointer"
+                  className="relative overflow-hidden w-12 h-12 rounded-full bg-orange-500 shadow-2xl hover:scale-110 transition-all duration-300 cursor-pointer"
                 >
-                  <img
-                    src={chatbot}
-                    alt="chatbot"
-                    className="w-6 h-6 object-contain"
-                  />
-                </button>
+                  {/* <img
+                    src={chatbotIcon}
+                     className="w-full h-full object-cover bg-orange-400 rounded-full pointer-events-none select-none scale-125"
+                   /> */}
+                   <video
+                    src={chatbotIcon}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    disablePictureInPicture
+                    controlsList="nodownload noplaybackrate nofullscreen"
+                    preload="auto"
+                    draggable={false}
+                    className="w-full h-full object-cover rounded-full pointer-events-none select-none scale-125"
+                  /> 
+                </button> 
               </div>
 
               {/* WHATSAPP */}

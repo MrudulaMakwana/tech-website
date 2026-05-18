@@ -139,15 +139,22 @@ const Footer = () => {
 
           <div className="space-y-4 text-sm">
             <div className="flex items-center gap-3 hover:text-orange-500 hover:pl-1 transition-all duration-200 cursor-pointer">
-              <SlLocationPin
-                className="text-orange-500 min-w-[20px]"
-                size={16}
-              />
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=205+Emerald+Complex+CG+Road+Near+Mithakhali+Navrangpura+Ahmedabad+Gujarat+380009"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 hover:text-orange-500 hover:pl-1 transition-all duration-200 cursor-pointer"
+              >
+                <SlLocationPin
+                  className="text-orange-500 min-w-[20px]"
+                  size={16}
+                />
 
-              <p>
-                205, Emerald Complex, CG Road, Near Mithakhali, Navrangpura,
-                Ahmedabad Gujarat 380009
-              </p>
+                <p>
+                  205, Emerald Complex, CG Road, Near Mithakhali, Navrangpura,
+                  Ahmedabad Gujarat 380009
+                </p>
+              </a>
             </div>
 
             <div className="flex items-center gap-3 hover:text-orange-500 hover:pl-1 transition-all duration-200 cursor-pointer">

@@ -11,6 +11,7 @@ import internshipData from "../data/internshipData";
 import reviewData from "../data/reviewData";
 import InternshipCard from "../components/InternshipCard";
 import PageHeader from "../components/PageHeader";
+import Testimonials from "../components/Testimonials";
 
 const InternshipPage = () => {
   return (
@@ -96,117 +97,10 @@ const InternshipPage = () => {
         </div>
 
         {/* ================= REVIEW SECTION ================= */}
-        <div className="bg-white dark:bg-gray-900 mt-16 md:mt-24 rounded-3xl shadow-sm py-12 md:py-16 transition-colors duration-300">
-          {/* REVIEW TITLE */}
-          <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white">
-              What Our Interns Say
-            </h2>
-
-            <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 mt-3">
-              Real experiences from our students
-            </p>
-          </div>
-
-          <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-            {/* LEFT BUTTON */}
-            <button
-              className="review-prev absolute left-0 sm:left-1 top-1/2 -translate-y-1/2 
-              z-20 bg-orange-500 hover:bg-orange-600 text-white 
-              w-9 h-9 sm:w-10 sm:h-10 rounded-full shadow-lg 
-              flex items-center justify-center transition cursor-pointer"
-            >
-              <MdOutlineKeyboardArrowLeft size={22} />
-            </button>
-
-            {/* RIGHT BUTTON */}
-            <button
-              className="review-next absolute right-0 sm:right-1 top-1/2 -translate-y-1/2 
-              z-20 bg-orange-500 hover:bg-orange-600 text-white 
-              w-9 h-9 sm:w-10 sm:h-10 rounded-full shadow-lg 
-              flex items-center justify-center transition cursor-pointer"
-            >
-              <MdOutlineKeyboardArrowRight size={22} />
-            </button>
-
-            {/* REVIEW SWIPER */}
-            <div className="px-8 sm:px-10 md:px-12">
-              <Swiper
-                modules={[Autoplay, Navigation]}
-                watchSlidesProgress={true}
-                observer={true}
-                observeParents={true}
-                spaceBetween={24}
-                loop={true}
-                speed={800}
-                autoplay={{
-                  delay: 3000,
-                  disableOnInteraction: false,
-                }}
-                navigation={{
-                  nextEl: ".review-next",
-                  prevEl: ".review-prev",
-                }}
-                breakpoints={{
-                  0: {
-                    slidesPerView: 1,
-                  },
-
-                  640: {
-                    slidesPerView: 1.2,
-                  },
-
-                  768: {
-                    slidesPerView: 2,
-                  },
-
-                  1024: {
-                    slidesPerView: 3,
-                  },
-                }}
-              >
-                {reviewData.map((item) => (
-                  <SwiperSlide key={item.id}>
-                    <div
-                      className="bg-gray-100 dark:bg-gray-800 
-                      min-h-[240px] p-5 md:p-6 rounded-2xl 
-                      shadow-md hover:shadow-2xl 
-                      transition-all duration-300 flex flex-col"
-                    >
-                      {/* USER */}
-                      <div className="flex items-center gap-4 mb-5">
-                        <img
-                          src={item.image}
-                          alt={item.name}
-                          loading="lazy"
-                          decoding="async"
-                          width="56"
-                          height="56"
-                          className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-orange-400"
-                        />
-
-                        <div>
-                          <h4 className="font-semibold text-gray-800 dark:text-white text-sm md:text-base">
-                            {item.name}
-                          </h4>
-
-                          <p className="text-xs md:text-sm text-orange-500">
-                            {item.technology}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* REVIEW TEXT */}
-                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed italic line-clamp-5">
-                        “{item.text}”
-                      </p>
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-          </div>
-        </div>
+        <Testimonials
+          title="What Our Interns Are Saying?"
+          subtitle="Hear from our interns who gained real-world experience and improved their development skills through live projects and mentorship."
+        />
       </div>
     </section>
   );

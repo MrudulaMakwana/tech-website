@@ -53,7 +53,6 @@ const Home = () => {
               className="prev-btn absolute left-1 md:left-2 lg:left-5 top-1/2 -translate-y-1/2 
         w-9 h-9 md:w-12 md:h-12 rounded-full flex justify-center items-center 
         bg-orange-500 text-white shadow-lg transition z-10
-        hover:bg-gray-200 hover:text-orange-500
         dark:bg-orange-500 dark:text-white dark:hover:bg-orange-500 dark:hover:text-white cursor-pointer"
             >
               <MdOutlineKeyboardArrowLeft size={20} className="md:text-2xl" />
@@ -62,7 +61,6 @@ const Home = () => {
               className="next-btn absolute right-1 md:right-2 lg:right-5 top-1/2 -translate-y-1/2 
         w-9 h-9 md:w-12 md:h-12 rounded-full flex justify-center items-center 
         bg-orange-500 text-white shadow-lg transition z-10
-        hover:bg-gray-200 hover:text-orange-500
         dark:bg-orange-500 dark:text-white dark:hover:bg-orange-500 dark:hover:text-white cursor-pointer"
             >
               <MdOutlineKeyboardArrowRight size={20} className="md:text-2xl" />
@@ -110,7 +108,12 @@ const Home = () => {
       <DataScienceProcess />
       <CaseStudySlider />
       <Team limit={4} showHeader={true} />
-      <Testimonials />
+      <Testimonials
+        title="What Our Students Are Saying?"
+        subtitle="Hear from our internship students who gained real-world
+              experience and improved their development skills through live
+              projects and mentorship."
+      />
       {/* <Blog /> */}
       <CTA />
     </>
