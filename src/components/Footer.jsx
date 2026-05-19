@@ -122,7 +122,7 @@ const Footer = () => {
             ].map((item, i) => (
               <li
                 key={i}
-                className="hover:text-orange-500 hover:pl-1 transition-all duration-200 cursor-pointer"
+                className="hover:text-orange-500 hover:pl-1 transition-all duration-200"
               >
                 {item}
               </li>
@@ -180,20 +180,28 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-200 dark:border-gray-700 mt-16 py-6">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 dark:text-gray-400">
+        <div className="max-w-7xl mx-auto px-10 flex flex-col gap-4 md:flex-row justify-center items-center text-sm text-gray-500 dark:text-gray-400">
           <p className="text-center md:text-left">
             © {new Date().getFullYear()} Infinity3 technology. All Rights
             Reserved.
           </p>
 
           <div className="flex gap-4 mt-3 md:mt-0">
-            <p className="hover:text-orange-500 cursor-pointer transition">
-              <Link to="/privacy-policy">Privacy Policy</Link>
-            </p>
+            <div className="flex flex-wrap justify-center md:justify-end gap-4 mt-3 md:mt-0">
+              <Link
+                to="/privacy-policy"
+                className="hover:text-orange-500 transition"
+              >
+                Privacy Policy
+              </Link>
 
-            <p className="hover:text-orange-500 cursor-pointer transition">
-              <Link to="/terms-conditions">Terms & Conditions</Link>
-            </p>
+              <Link
+                to="/terms-conditions"
+                className="hover:text-orange-500 transition"
+              >
+                Terms & Conditions
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate, useLocation, useParams } from "react-router-dom";
 import { TbWorld } from "react-icons/tb";
 import { MdDone } from "react-icons/md";
@@ -22,9 +22,9 @@ const CaseStudyDetails = () => {
   const project = location.state?.project;
   const allProjects = location.state?.projects || [];
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!project) {
-      navigate("/case-studies");
+      navigate(`/case-studies/`);
     }
   }, [project, navigate]);
 
