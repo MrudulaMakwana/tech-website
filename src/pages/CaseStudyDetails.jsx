@@ -38,9 +38,18 @@ const CaseStudyDetails = () => {
 
   return (
     <div className="bg-gray-50 dark:bg-gray-950 pt-16 md:pt-20 overflow-hidden transition-colors duration-300">
-      <PageHeader title="Project Details" />
+      <div className="max-w-7xl mx-auto px-6 py-10">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white">
+          {project.title}
+        </h1>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+        <p className="text-sm md:text-base text-gray-500 mt-2 dark:text-gray-300">
+          Project Details /{" "}
+          <span className="text-orange-500">{project.title}</span>
+        </p>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className=" grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 pb-12 md:pb-16">
           {/* ================= LEFT CONTENT ================= */}
           <div className="lg:col-span-2">
@@ -70,35 +79,14 @@ const CaseStudyDetails = () => {
             </div>
 
             {/* CONTENT */}
-           <div className="mt-8 w-full">
-              {/* CATEGORY */}
-              <div className="flex items-center gap-3 flex-wrap">
-                <span className="bg-orange-100 dark:bg-orange-500/10 text-orange-500 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full">
-                  {project.category}
-                </span>
-              </div>
-
-              {/* TITLE */}
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mt-5 leading-tight">
-                {project.title}
-              </h1>
-
-              {/* DESCRIPTION */}
-              <p className="text-gray-600 dark:text-gray-300 mt-6 leading-8 text-base sm:text-lg">
-                {project.description}
-              </p>
-
-              {/* EXTRA CONTENT */}
+            <div className="mt-8 w-full">
               <div className="mt-10 bg-white dark:bg-gray-900 rounded-3xl p-6 sm:p-8 shadow-md border border-gray-200 dark:border-gray-800">
                 <h2 className="text-2xl font-bold text-black dark:text-white">
                   Project Overview
                 </h2>
 
                 <p className="text-gray-600 dark:text-gray-300 mt-4 leading-7 text-sm md:text-base">
-                  {project.desc} Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Vel veritatis, a, quos illum repudiandae
-                  vitae aut sed quidem nesciunt exercitationem ab! Corporis,
-                  nostrum.
+                  {project.project_description}
                 </p>
 
                 <div className="mt-8">
@@ -107,27 +95,20 @@ const CaseStudyDetails = () => {
                   </h3>
 
                   <ul className="space-y-2 text-gray-600 dark:text-gray-300 text-sm md:text-base">
-                    <li>The Field of Data Science</li>
-                    <li>The Problem</li>
-                    <li>The Solution</li>
-                    <li>Statistics</li>
-                    <li>Mathematics</li>
+                    {project.features?.length > 0 &&
+                      project.features.map((f) => (
+                        <li key={f.id} className="list-disc">
+                          {f.feature_title}
+                        </li>
+                      ))}
                   </ul>
                 </div>
 
                 <p className="text-gray-600 dark:text-gray-300 mt-6 leading-7 text-sm md:text-base">
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                </p>
-
-                <p className="text-gray-600 dark:text-gray-300 mt-4 leading-7 text-sm md:text-base">
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered alteration in some
-                  form.
+                  {project.feature_description}
                 </p>
               </div>
             </div>
-
           </div>
           <div>
             <div className="sticky top-24 bg-white dark:bg-gray-900 rounded-3xl shadow-xl border border-gray-200 dark:border-gray-800 overflow-hidden">
@@ -177,7 +158,7 @@ const CaseStudyDetails = () => {
                     <div>
                       <p className="text-sm text-gray-400">Technologies</p>
                       <h4 className="font-semibold text-black dark:text-white mt-1 leading-7">
-                        {project.technologies}
+                        {project.technologies?.join(", ")}
                       </h4>
                     </div>
                   </div>
@@ -191,7 +172,7 @@ const CaseStudyDetails = () => {
                     <div>
                       <p className="text-sm text-gray-400">Completed</p>
                       <h4 className="font-semibold text-black dark:text-white mt-1">
-                        {project.completed}
+                        {new Date(project.completed).toLocaleDateString()}
                       </h4>
                     </div>
                   </div>
@@ -206,7 +187,7 @@ const CaseStudyDetails = () => {
                       <p className="text-sm text-gray-400">Website</p>
 
                       <a
-                        href={project.deployed_url}
+                        href={project.deployed_url || project.website}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 font-semibold text-orange-500 hover:text-orange-600 mt-1 transition"
@@ -292,4 +273,3 @@ const CaseStudyDetails = () => {
 };
 
 export default CaseStudyDetails;
-
