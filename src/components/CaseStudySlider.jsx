@@ -134,7 +134,7 @@ const CaseStudySlider = () => {
                       alt={project.title}
                       loading="lazy"
                       decoding="async"
-                      className="w-[90%] md:w-[80%] max-w-sm md:max-w-none rounded-xl shadow-lg object-cover"
+                      className="w-full h-full object-cover md:w-[80%] max-w-sm md:max-w-none rounded-xl shadow-lg"
                     />
                   </div>
                 </div>
