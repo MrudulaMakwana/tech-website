@@ -12,10 +12,7 @@ import { SiProbot } from "react-icons/si";
 import { BsRobot } from "react-icons/bs";
 import coursesData from "../data/coursesData";
 import internshipData from "../data/internshipData";
-import chatbot from "./../assets/images/chatbot.webp";
-// import chatbotIcon from "./../assets/chatbot.mp4";
-import chatbotIcon from "./../assets/chatbot3.mp4";
-// import chatbotIcon from "./../assets/chatbot2.gif";
+import chatbotIcon from "./../assets/chatbot.mp4";
 
 const ScrollToTop = () => {
   const [visible, setVisible] = useState(true);
@@ -412,18 +409,14 @@ ${data.roadmap}
                   </div>
                 )}
 
-                 <button
+                <button
                   onClick={() => {
                     setChatOpen(true);
                     setShowHelpText(false);
                   }}
-                  className="relative overflow-hidden w-12 h-12 rounded-full bg-orange-500 shadow-2xl hover:scale-110 transition-all duration-300 cursor-pointer"
+                  className="relative overflow-hidden w-12 h-12 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 cursor-pointer"
                 >
-                  {/* <img
-                    src={chatbotIcon}
-                     className="w-full h-full object-cover bg-orange-400 rounded-full pointer-events-none select-none scale-125"
-                   /> */}
-                   <video
+                  <video
                     src={chatbotIcon}
                     autoPlay
                     loop
@@ -434,8 +427,8 @@ ${data.roadmap}
                     preload="auto"
                     draggable={false}
                     className="w-full h-full object-cover rounded-full pointer-events-none select-none scale-125"
-                  /> 
-                </button> 
+                  />
+                </button>
               </div>
 
               {/* WHATSAPP */}
@@ -466,10 +459,17 @@ sm:w-[320px] md:w-[340px] sm:h-[480px] md:max-h-full rounded-none sm:rounded-2xl
               <div className="bg-gradient-to-r from-orange-500 to-amber-500 p-2.5 text-white flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
-                    <img
-                      src={chatbot}
-                      alt="chatbot"
-                      className="w-4 h-4 object-contain"
+                    <video
+                      src={chatbotIcon}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      disablePictureInPicture
+                      controlsList="nodownload noplaybackrate nofullscreen"
+                      preload="auto"
+                      draggable={false}
+                      className="w-full h-full object-cover rounded-full pointer-events-none select-none scale-125"
                     />
                   </div>
 
