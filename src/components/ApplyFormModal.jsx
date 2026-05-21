@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 const ApplyFormModal = ({ plan, techTitle, courseId, onClose }) => {
   const [loading, setLoading] = useState(false);
   const BASE_URL = import.meta.env.VITE_BASE_URL;
-  console.log(plan, techTitle, courseId, onClose )
   const [formData, setFormData] = useState({
     fullName: "",
     mobile: "",

@@ -10,7 +10,10 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   const socialLinks = [
-    { icon: MdEmail, url: "mailto:infinity3tech@gmail.com" },
+    {
+      icon: MdEmail,
+      url: "https://mail.google.com/mail/?view=cm&fs=1&to=infinity3tech@gmail.com",
+    },
     { icon: FaWhatsapp, url: "https://wa.me/919409259294" },
     {
       icon: FaLinkedinIn,
@@ -166,11 +169,12 @@ const Footer = () => {
 
             <div className="flex items-center gap-3 hover:text-orange-500 hover:pl-1 cursor-pointer transition-all duration-200">
               <a
-                href="mailto:infinity3tech@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=infinity3tech@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 hover:text-orange-500 transition"
               >
                 <MdOutlineMailOutline className="text-orange-500" size={16} />
-
                 <p>infinity3tech@gmail.com</p>
               </a>
             </div>
